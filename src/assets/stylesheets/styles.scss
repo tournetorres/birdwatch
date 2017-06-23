@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Pangolin');
+
+
+$brand-green: rgb(130, 207, 132);
+$brand-blue: rgb(59, 122, 192);
+$font-size: 7rem;
+$pangolin: 'Pangolin', cursive;
+$variable: green;
+
+body {
+  height: 100vh;
+  background-color: $brand-green;
+  color: $brand-blue;
+  font-size: $font-size;
+  font-weight: 900;
+  font-family: $pangolin;
+}
