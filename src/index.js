@@ -1,10 +1,10 @@
 import './assets/stylesheets/styles.scss';
 
-// import React from 'react'; // import the main react dependency
-// import ReactDOM from 'react-dom'; // import reactDOM
-// import App from './app/App.jsx'; // import the main app component
+// import React from 'react'; 
+// import ReactDOM from 'react-dom'; 
+// import App from './app/App.jsx'; 
 
-// ReactDOM.render(<App />, document.getElementById('root')); // render our App component and mount it to our #root element
+// ReactDOM.render(<App />, document.getElementById('app')); 
 
 class Bird {
   typeOfBird(bird, lat, long) {
