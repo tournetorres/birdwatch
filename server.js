@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 const birdCatcher = (data) => {
-  console.log(JSON.parse(data));
+  // console.log(JSON.parse(data));
 };
 
 const obj = { lat: 30.0316211, lng: -90.0365832 };
