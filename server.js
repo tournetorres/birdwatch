@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const PORT = process.env.PORT;
 const app = express();
+const db = require('./lib/psql');
 
 app.listen(PORT, () => {
   console.log(`Listening at ${PORT}`);
@@ -20,4 +21,3 @@ const birdCatcher = (data) => {
 const obj = { lat: 40, lng: -90 };
 
 birdCall.call(obj, birdCatcher);
-
