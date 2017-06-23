@@ -17,7 +17,7 @@ const birdCatcher = (data) => {
   console.log(JSON.parse(data));
 };
 
-const obj = { lat: 40, lng: -90 };
+const obj = { lat: 30.0316211, lng: -90.0365832 };
 
 birdCall.call(obj, birdCatcher);
 
