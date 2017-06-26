@@ -36,7 +36,7 @@ const config = {
   },
   plugins: [
     new ExtractTextWebpackPlugin('styles.css'), // call and name our css file
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin()
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './public'), // url to serve HTML contents from
@@ -59,7 +59,7 @@ module.exports = config;
 if (process.env.NODE_ENV === 'production') {
   module.exports.plugins.push(
     new webpack.optimize.UglifyJsPlugin(), // uglify
-    new OptimizeCSSAssets(), //CSS minifier
+    new OptimizeCSSAssets() //CSS minifier
   );
 }
 
