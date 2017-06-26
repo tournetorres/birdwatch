@@ -4,16 +4,21 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
 
+// const Login = () =>(
+//   <div>
+//     <h1> Login Page </h1>
+//   </div>
+// );
 const style = {
   margin: 15,
 };
 
 // handleClick(event){
-//   var apiBaseUrl = "http://localhost:3000/login";
+//   var apiBaseUrl = "http://localhost:3000/";
 //   var self = this;
 //   var payload={
-//   "email":this.state.username,
-//   "password":this.state.password
+//     "email":this.state.username,
+//     "password":this.state.password
 //   }
 //   axios.post(apiBaseUrl+'login', payload)
 //   .then(function (response) {
@@ -36,8 +41,7 @@ const style = {
 //   .catch(function (error) {
 //     console.log(error);
 //   });
-//   }
-
+// }
 
 class Login extends Component {
   constructor(props) {
