@@ -3,17 +3,32 @@ const birdCall = require('./lib/birdApi');
 
 const db = require('./lib/psql');
 require('dotenv').config();
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
+const strategy = require('passport-local').Strategy;
 
 const PORT = process.env.PORT;
 const app = express();
+
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(session({
+  secret: 'it\'s a secret man',
+  resave: false,
+  saveUninitiated: true,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.listen(PORT, () => {
   console.log(`Listening at ${PORT}`);
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+app.use(express.static('public'))
 
 app.post('/login', (req, res) => {
 
@@ -38,3 +53,4 @@ app.post('/map', (req, res) => {
 app.get('/myBirds', (req, res) => {
   db.getBirdsByUser();
 });
+
