@@ -59,7 +59,7 @@ module.exports = config;
 if (process.env.NODE_ENV === 'production') {
   module.exports.plugins.push(
     new webpack.optimize.UglifyJsPlugin(), // uglify
-    new OptimizeCSSAssets(), //CSS minifier
+    new OptimizeCSSAssets() //CSS minifier
   );
 }
 /** IMAGE transpiler
