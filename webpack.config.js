@@ -36,7 +36,7 @@ const config = {
   },
   plugins: [
     new ExtractTextWebpackPlugin('styles.css'), // call and name our css file
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin()
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './public'), // url to serve HTML contents from
@@ -62,7 +62,9 @@ if (process.env.NODE_ENV === 'production') {
     new OptimizeCSSAssets() //CSS minifier
   );
 }
-/** IMAGE transpiler
+
+
+// IMAGE transpiler
 //         test: /\.(jpe?g|png|gif|svg)$/i,
 //         loaders: ['file-loader?context=src/assets/images/&name=images/[path][name].[ext]', {  // images loader
 //           loader: 'image-webpack-loader',
@@ -84,7 +86,6 @@ if (process.env.NODE_ENV === 'production') {
 //         }],
 //         exclude: /node_modules/,
 //         include: __dirname,
-//       },
-**/
+// 
 
 
