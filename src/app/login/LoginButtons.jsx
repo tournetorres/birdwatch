@@ -1,8 +1,9 @@
-import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Link } from 'react-router-dom';
+import React from 'react';
+
 injectTapEventPlugin();
 
 const style = {
