@@ -4,11 +4,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
 
-// const Login = () =>(
-//   <div>
-//     <h1> Login Page </h1>
-//   </div>
-// );
 const style = {
   margin: 15,
 };

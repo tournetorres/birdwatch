@@ -12,10 +12,10 @@ const style = {
 const LoginButtons = () => (
   <div>
     <MuiThemeProvider>
-        <div>
-          <RaisedButton label="Login" containerElement={<Link to="/login" />} primary={true} style={style} />
-          <RaisedButton label="SignUp" containerElement={<Link to="/signup" />} primary={true} style={style} />
-        </div>
+      <div>
+        <RaisedButton label="Login" containerElement={<Link to="/login" />} primary={true} style={style} />
+        <RaisedButton label="SignUp" containerElement={<Link to="/signup" />} primary={true} style={style} />
+      </div>
     </MuiThemeProvider>
   </div>
 );

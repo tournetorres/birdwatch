@@ -1,7 +1,7 @@
 const express = require('express');
 const birdCall = require('./lib/birdApi');
 
-const db = require('./lib/psql');
+// const db = require('./lib/psql');
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
