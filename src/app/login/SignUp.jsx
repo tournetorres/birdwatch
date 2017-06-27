@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Route, Switch } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
-import SignUp from './SignUp.jsx';
+// import SignUp from './SignUp.jsx';
 import axios from 'axios';
 
 const style = {

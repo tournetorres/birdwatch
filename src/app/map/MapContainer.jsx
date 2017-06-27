@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+// import Map, { Marker, InfoWindow } from 'google-maps-react';
+import GMap from './GMap.jsx';
+import SimpleForm from './Search.jsx';
 
-class MapContainer extends Component {
-  render() {
-    // if (!this.props.loaded) {
-    //   return <div>Loading...</div>
-    // }
-    return (
-      <div>Map will go here</div>
-    );
-  }
-}
+const MapContainer = () => (
+  <div>
+    <SimpleForm /> 
+    <br />
+    
+    <GMap google={window.google}/>
+  </div>
+)
 
 export default MapContainer;
