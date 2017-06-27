@@ -1,6 +1,5 @@
 const express = require('express');
 const birdCall = require('./lib/birdApi');
-
 const db = require('./lib/psql');
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
@@ -14,7 +13,7 @@ const app = express();
 
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
   secret: 'it\'s a secret man',
   resave: false,
@@ -28,7 +27,7 @@ app.listen(PORT, () => {
   console.log(`Listening at ${PORT}`);
 });
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.post('/login', (req, res) => {
 
