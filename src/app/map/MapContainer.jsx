@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import GMap from './GMap.jsx';
 import SimpleForm from './Search.jsx';
 
+
 const MapContainer = () => (
   <div>
     <SimpleForm /> 
     <br />
-    
     <GMap google={window.google}/>
   </div>
 )
