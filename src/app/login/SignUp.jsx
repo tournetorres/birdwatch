@@ -23,6 +23,7 @@ class SignUp extends Component {
       password: '',
     };
   }
+
   handleClick() {
     const apiBaseUrl = 'http://localhost:3000/';
 

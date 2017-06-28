@@ -26,6 +26,7 @@ class Login extends Component {
       password: '',
     };
   }
+
   handleClick() {
     const apiBaseUrl = 'http://localhost:3000/';
     const payload = {
