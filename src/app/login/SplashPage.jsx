@@ -14,7 +14,7 @@ const SplashPage = () => (
   <div>
     <MuiThemeProvider>
       <div>
-        <h1>Logo Goes here</h1>
+        <h1>Birdwatch</h1>
         <RaisedButton label="Login" containerElement={<Link to="/login" />} primary={true} style={style} />
         <RaisedButton label="SignUp" containerElement={<Link to="/signup" />} primary={true} style={style} />
       </div>

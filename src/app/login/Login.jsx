@@ -29,14 +29,10 @@ class Login extends Component {
     };
   }
 
-  changeInput() {
-    this.setState({path: '/timeline'})
-  }
-
   handleClick() {
     const payload = {
-      'username': this.state.username,
-      'password': this.state.password,
+      username: this.state.username,
+      password: this.state.password,
     };
 
     axios.post('/login', payload)
