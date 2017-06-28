@@ -31,13 +31,28 @@
   });
 
   app.post('/login', (req, res) => {
-    res.writeHead(200);
-    res.end();
+    db.getUser(req.body.user)
+    .then(data => {
+      console.log(data, 'data from users');      
+      res.writeHead(200);
+      res.end();
+    });
+
   });
 
   app.post('/signup', (req, res) => {
-    res.writeHead(200);
-    res.end();
+    db.getUser(req.body.user)
+    .then(data => {
+      if (data.length === 0) {
+        db.createUser(req.body.user, req.body.password)
+        .then(data => {
+          console.log(data);
+          res.writeHead(200);
+          res.end();
+        });
+      }
+    })
+    .catch(err => console.log(err));
   });
 
   app.listen(PORT, () => {

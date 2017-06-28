@@ -21,7 +21,7 @@ class SignUp extends Component {
     var apiBaseUrl = 'http://localhost:3000/';
     var self = this;
     var payload={
-      "email":this.state.username,
+      "user":this.state.username,
       "password":this.state.password
     };
     axios.post(apiBaseUrl+'login', payload)

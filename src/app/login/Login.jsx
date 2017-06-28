@@ -11,6 +11,7 @@ import axios from 'axios';
 //     <h1> Login Page </h1>
 //   </div>
 // );
+
 const style = {
   margin: 15,
 };
@@ -30,7 +31,7 @@ class Login extends Component {
     var apiBaseUrl = 'http://localhost:3000/';
     var self = this;
     var payload={
-      "email":this.state.username,
+      "user":this.state.username,
       "password":this.state.password
     };
     axios.post(apiBaseUrl+'login', payload)
