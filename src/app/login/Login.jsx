@@ -25,17 +25,18 @@ class Login extends Component {
   }
 
   handleClick() {
-    const apiBaseUrl = 'http://localhost:3000/';
     const payload = {
       'username': this.state.username,
       'password': this.state.password,
     };
 
-    axios.post(apiBaseUrl+'login', payload)
+    axios.post('/login', payload)
     .then((response) => {
       if (response.status === 200) { 
+        console.log(response);
         //if login successful render Timeline component
-        <Route path="/timeline" component={Timeline}/>
+        // <Link to='/map' />
+        return <Route path="/timeline" component={Timeline}/>
       } else if (response.status === 204) {
         //if username exists but password is wrong than refresh the Login page
         <Route path="/login" component={Login}/>
@@ -53,18 +54,6 @@ class Login extends Component {
       <div>
         <MuiThemeProvider>
           <div>
-            <AppBar
-              title="Login"
-              iconElementLeft={
-                <IconMenu
-                  iconButtonElement={<IconButton><MoreVertIcon color="white" /></IconButton>} >
-                  <MenuItem primaryText="Map" containerElement={<Link to='/map' />} />
-                  <MenuItem primaryText="Timeline" containerElement={<Link to='/timeline' />} />
-                  <MenuItem primaryText="Logout" containerElement={<Link to='/logout' />} />
-                </IconMenu>
-              }
-
-            />
             <TextField
               hintText="Enter your Username"
               floatingLabelText="Username"
