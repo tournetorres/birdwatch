@@ -124,13 +124,3 @@ app.get('/birds', (req, res) => {
     res.end();
   });
 });
-
-app.listen(PORT, () => {
-  console.log(`Listening at ${PORT}`);
-});
-
-app.use(express.static('public'));
-
-// get birds by location to render on map
-
-

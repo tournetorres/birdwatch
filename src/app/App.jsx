@@ -5,6 +5,7 @@ import Login from './login/Login.jsx';
 import SignUp from './login/SignUp.jsx';
 import SplashPage from './login/SplashPage.jsx';
 import { Route, Switch } from 'react-router-dom';
+import Header from './Header.jsx';
 
 const App = () => (
   <div>
