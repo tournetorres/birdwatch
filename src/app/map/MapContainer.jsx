@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import Map, { Marker, InfoWindow } from 'google-maps-react';
+import { Route, Switch, Link } from 'react-router-dom';
 import GMap from './GMap.jsx';
 import SimpleForm from './Search.jsx';
-import { Route, Switch, Link } from 'react-router-dom';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
