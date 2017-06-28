@@ -9,9 +9,25 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-
+import exampleBirdData from '../data/exampledata.jsx';
 
 class MapContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      birdData: exampleBirdData,
+    };
+    this.birdCatcher = this.birdCatcher.bind(this);
+  }
+
+  birdCatcher(data) {
+    console.log(data, "birds caught!!");
+    console.log(this.state.birdData, 'old data')
+    this.setState({ birdData: data.data }, () => {
+      console.log(this.state.birdData, "new data")
+    });
+  }
+
   render() {
     return (
       <div>
@@ -28,9 +44,9 @@ class MapContainer extends Component {
                 </IconMenu>
               }
             />
-            <SimpleForm /> 
+            <SimpleForm birdCatcher={this.birdCatcher} /> 
             <br />
-            <GMap google={window.google}/>
+            <GMap google={window.google} birdData={this.state.birdData}/>
           </div>
         </MuiThemeProvider>
       </div>
@@ -39,3 +55,6 @@ class MapContainer extends Component {
 }
 
 export default MapContainer;
+
+
+// onChange={(event, newValue) => this.setState({ birdData: newValue })}
