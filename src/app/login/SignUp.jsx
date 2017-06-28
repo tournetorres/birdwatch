@@ -4,7 +4,6 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Route, Switch, Link } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
-// import SignUp from './SignUp.jsx';
 import axios from 'axios';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
