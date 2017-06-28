@@ -25,13 +25,12 @@ class Login extends Component {
   }
 
   handleClick() {
-    const apiBaseUrl = 'http://localhost:3000/';
     const payload = {
       'username': this.state.username,
       'password': this.state.password,
     };
 
-    axios.post(apiBaseUrl+'login', payload)
+    axios.post('/login', payload)
     .then((response) => {
       if (response.status === 200) { 
         console.log(response);
@@ -55,18 +54,6 @@ class Login extends Component {
       <div>
         <MuiThemeProvider>
           <div>
-            <AppBar
-              title="Login"
-              iconElementLeft={
-                <IconMenu
-                  iconButtonElement={<IconButton><MoreVertIcon color="white" /></IconButton>} >
-                  <MenuItem primaryText="Map" containerElement={<Link to='/map' />} />
-                  <MenuItem primaryText="Timeline" containerElement={<Link to='/timeline' />} />
-                  <MenuItem primaryText="Logout" containerElement={<Link to='/logout' />} />
-                </IconMenu>
-              }
-
-            />
             <TextField
               hintText="Enter your Username"
               floatingLabelText="Username"
