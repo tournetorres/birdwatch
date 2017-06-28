@@ -34,8 +34,10 @@ class Login extends Component {
     axios.post(apiBaseUrl+'login', payload)
     .then((response) => {
       if (response.status === 200) { 
+        console.log(response);
         //if login successful render Timeline component
-        <Route path="/timeline" component={Timeline}/>
+        // <Link to='/map' />
+        return <Route path="/timeline" component={Timeline}/>
       } else if (response.status === 204) {
         //if username exists but password is wrong than refresh the Login page
         <Route path="/login" component={Login}/>

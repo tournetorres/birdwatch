@@ -24,6 +24,7 @@
     "axios": "^0.16.2",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
+    "bcrypt": "^1.0.2",
     "bcryptjs": "^2.3.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",

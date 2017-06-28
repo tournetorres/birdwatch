@@ -5,8 +5,7 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const passport = require('passport');
-const strategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt');
 
 const PORT = process.env.PORT;
 const app = express();
@@ -30,36 +29,79 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
   secret: 'it\'s a secret man',
   resave: false,
-  saveUninitiated: true,
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 app.post('/login', (req, res) => {
+  console.log(req.session)
   db.getUser(req.body.username)
-  .then((data) => {
-    console.log(data, 'data from users');
-    res.writeHead(200);
-    res.end();
-  });
+  .then(data => {
+    if (data.length) {
+      let salt = data[0].salt;
+      let servPassHash = data[0].password;
+      let sentPassHash = bcrypt.hashSync(req.body.password, salt);
+      if (sentPassHash === servPassHash) { 
+        req.session.regenerate(() => {
+          req.session.user = req.body.username;
+          res.writeHead(200);
+          res.end();
+        });
+      } else {
+        res.writeHead(401);
+        res.end();
+      }
+    } else {
+      res.writeHead(401);
+      res.end();
+    }
+  })
+  .catch(err => console.log(err));
 });
 
 app.post('/signup', (req, res) => {
   db.getUser(req.body.username)
   .then((data) => {
     if (data.length === 0) {
-      db.createUser(req.body.username, req.body.password)
-      .then((signin) => {
-        console.log(signin);
-        res.writeHead(200);
-        res.end();
+      let salt = bcrypt.genSaltSync(10);
+      let hashedPass = bcrypt.hashSync(req.body.password, salt);
+      db.createUser(req.body.username, hashedPass, salt)
+      .then(data => {
+        req.session.regenerate(() => {
+          req.session.user = req.body.username;
+          res.writeHead(200);
+          res.end();
+        });
       });
+    } else {
+      res.writeHead(401);
+      res.write('user exists');
+      res.end();
     }
   })
   .catch(err => console.log(err));
 });
 
-// get birds by location to render on map
+app.post('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.writeHead(200);
+    res.end();
+  });
+});
+
+app.post('/birds', (req, res) => {
+  let user = req.session.user;
+  db.username(user)
+  .then(data => {
+    let id = data[0].id;
+    db.createBird(req.body.bird, req.body.location, id)
+    .then(data => {
+      res.writeHead(200);
+      res.write('bird added!');
+      res.end();
+    });
+  });
+});
+
 app.post('/map', (req, res) => {
   const latLng = req.body;
   const obj = latLng;
@@ -74,7 +116,21 @@ app.post('/map', (req, res) => {
 });
 
 // get users most recent birds logged in db
-app.get('/myBirds', (req, res) => {
-  db.getBirdsByUser();
+app.get('/birds', (req, res) => {
+  db.getBirdsInDb(10)
+  .then(data => {
+    res.writeHead(200);
+    res.write(JSON.stringify(data));
+    res.end();
+  });
 });
+
+app.listen(PORT, () => {
+  console.log(`Listening at ${PORT}`);
+});
+
+app.use(express.static('public'));
+
+// get birds by location to render on map
+
 
