@@ -4,8 +4,10 @@ import MapContainer from './map/MapContainer.jsx';
 import Login from './login/Login.jsx';
 import SignUp from './login/SignUp.jsx';
 import SplashPage from './login/SplashPage.jsx';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Router} from 'react-router';
 import Header from './Header.jsx';
+import PropTypes from 'prop-types';
+
 
 const App = () => (
   <div>

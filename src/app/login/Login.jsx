@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import {Redirect, Route, Switch, Link, Router } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -10,6 +10,10 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
+import Timeline from '../timeline/Timeline.jsx';
+import App from '../App.jsx';
+import PropTypes from 'prop-types';
+import ReactRedirect from 'react-redirect';
 
 const style = {
   margin: 15,
@@ -21,7 +25,12 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
+      path: this.props.location.pathname
     };
+  }
+
+  changeInput() {
+    this.setState({path: '/timeline'})
   }
 
   handleClick() {
@@ -33,16 +42,10 @@ class Login extends Component {
     axios.post('/login', payload)
     .then((response) => {
       if (response.status === 200) { 
-        console.log(response);
-        //if login successful render Timeline component
-        // <Link to='/map' />
-        return <Route path="/timeline" component={Timeline}/>
+        this.props.history.push('/timeline');
       } else if (response.status === 204) {
         //if username exists but password is wrong than refresh the Login page
-        <Route path="/login" component={Login}/>
-      } else {
-        //if the username doesn't exist render SignUp component
-        <Route path="/signup" component={SignUp}/>
+        this.props.history.push('/login');
       }
     })
     .catch((error) => {

@@ -3,8 +3,6 @@ import GMap from './GMap.jsx';
 import SimpleForm from './Search.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import exampleBirdData from '../data/exampledata.jsx';
-import GMap from './GMap.jsx';
-import SimpleForm from './Search.jsx';
 import Header from '../Header.jsx';
 
 class MapContainer extends Component {
