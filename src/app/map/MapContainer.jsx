@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import exampleBirdData from '../data/exampledata.jsx';
 import GMap from './GMap.jsx';
 import SimpleForm from './Search.jsx';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import exampleBirdData from '../data/exampledata.jsx';
 import Header from '../Header.jsx';
 
 class MapContainer extends Component {
@@ -29,7 +29,7 @@ class MapContainer extends Component {
             <Header />
             <SimpleForm birdCatcher={this.birdCatcher} /> 
             <br />
-            <GMap google={window.google} birdData={this.state.birdData}/>
+            <GMap google={window.google} birdData={this.state.birdData} />
           </div>
         </MuiThemeProvider>
       </div>

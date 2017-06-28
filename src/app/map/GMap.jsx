@@ -1,38 +1,55 @@
 import React, { Component } from 'react';
-import Map, { Marker } from 'google-maps-react';
-import Search from './Search.jsx';
+import Map, { Marker, InfoWindow } from 'google-maps-react';
 
 class GMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      zoom: 10,
-      initCenter: { lat: 29.9574443, lng: -90.06293540000001 },
+      zoom: 12,
+      initCenter: { lat: this.props.birdData[0].lat, lng: this.props.birdData[0].lng },
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
     };
+    this.onMarkerClick = this.onMarkerClick.bind(this);
   }
+
+  onMarkerClick(props, marker, e) {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true,
+    });
+  }
+
   render() {
-    const style = {
-      width: '50vw',
-      height: '50vh',
-    };
-    
     return (
-      <div style={style}>
+      <div>
         <Map
           google={this.props.google} 
           zoom={this.state.zoom}
           initialCenter={this.state.initCenter}
         >
-        {this.props.birdData.map((bird, i) => {
+        {this.props.birdData.map((bird, i, arr) => {
           let ltd = bird.lat;
           let lon = bird.lng;
           return (
             <Marker
+              onClick={this.onMarkerClick}
+              name={bird.comName}
               key={i}
               position={{ lat: ltd, lng: lon }}
             />
           );
         })}
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+          >
+            <div>
+              <h1>{this.state.selectedPlace.name}</h1>
+            </div>
+          </InfoWindow>
         </Map>
       </div>
     );
