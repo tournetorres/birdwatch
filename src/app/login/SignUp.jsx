@@ -25,12 +25,11 @@ class SignUp extends Component {
     };
     axios.post('/signup', payload) // does it work if we get rid of apiBaseUrl and only use the endpoint ex: '/signup'
     .then((response) => {
-      if (response.status === 200) {
-        // if sign up successful redirect to login page
-        <Route path='/login' component={Login}/>
-      } else {
-          // refresh the SignUp page
-        <Route path='/signup' component={SignUp}/>
+      if (response.status === 200) { 
+        this.props.history.push('/timeline');
+      } else if (response.status === 204) {
+        //if username exists but password is wrong than refresh the Login page
+        this.props.history.push('/signup');
       }
     })   
     .catch((error) => {
