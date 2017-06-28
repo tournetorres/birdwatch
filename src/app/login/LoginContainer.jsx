@@ -3,14 +3,13 @@ import React from 'react';
 import Login from './Login.jsx';
 import SignUp from './SignUp.jsx';
 import SplashPage from './SplashPage.jsx';
+import LoginButtons from './LoginButtons.jsx';
+// import MapContainer from '../map/MapContainer.jsx';
 
 const LoginContainer = () => (
   <main>
-    <Switch>
-      <Route path="/" component={SplashPage} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={SignUp} />
-    </Switch>
+    <SplashPage />  
+    <LoginButtons />
   </main>
 );
 
