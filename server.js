@@ -90,10 +90,12 @@ app.post('/logout', (req, res) => {
 
 app.post('/birds', (req, res) => {
   let user = req.session.user;
-  db.username(user)
+  console.log('this is user session', req.session);
+  db.getUser(user)
   .then(data => {
+    console.log('this is data', data);
     let id = data[0].id;
-    db.createBird(req.body.bird, req.body.location, id)
+    db.createBird(req.body.birdType, req.body.location, id)
     .then(data => {
       res.writeHead(200);
       res.write('bird added!');
