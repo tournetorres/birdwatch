@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 
-
 const PORT = process.env.PORT;
 const app = express();
 
@@ -19,9 +18,14 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.listen(PORT, () => {
+  console.log(`Listening at ${PORT}`);
+});
+
+app.use(express.static('public'));
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
   secret: 'it\'s a secret man',
   resave: false,
@@ -56,7 +60,7 @@ app.post('/login', (req, res) => {
 
 app.post('/signup', (req, res) => {
   db.getUser(req.body.username)
-  .then(data => {
+  .then((data) => {
     if (data.length === 0) {
       let salt = bcrypt.genSaltSync(10);
       let hashedPass = bcrypt.hashSync(req.body.password, salt);
@@ -99,10 +103,13 @@ app.post('/birds', (req, res) => {
 });
 
 app.post('/map', (req, res) => {
-  console.log(req.body, 'body');
-  const obj = { lat: 30.0316211, lng: -90.0365832 };
+  const latLng = req.body;
+  const obj = latLng;
   const birdCatcher = (data) => {
-    console.log(data);
+    console.log(JSON.parse(data))
+    res.writeHead(200, { contentType: 'application/json' });
+    res.write(data);
+    res.end();
   };
 
   birdCall.call(obj, birdCatcher);
