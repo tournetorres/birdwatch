@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
-// import Timeline from '../Timeline.jsx'; //make sure this is the right path for your computer
+import Timeline from '../timeline/Timeline.jsx'; //make sure this is the right path for your computer
 import SignUp from './SignUp.jsx';
 import axios from 'axios';
 import IconMenu from 'material-ui/IconMenu';
@@ -37,8 +37,10 @@ class Login extends Component {
     axios.post(apiBaseUrl+'login', payload)
     .then((response) => {
       if (response.status === 200) { 
+        console.log(response);
         //if login successful render Timeline component
-        <Route path="/timeline" component={Timeline}/>
+        // <Link to='/map' />
+        return <Route path="/timeline" component={Timeline}/>
       } else if (response.status === 204) {
         //if username exists but password is wrong than refresh the Login page
         <Route path="/login" component={Login}/>

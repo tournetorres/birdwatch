@@ -7,7 +7,7 @@ class GMap extends Component {
     super(props);
     this.state = {
       zoom: 14,
-      initCenter: {lat: 29.951065, lng: -90.071416}
+      initCenter: {lat: 29.9574443, lng: -90.06293540000001}
     }
   }
   render() {
@@ -22,7 +22,7 @@ class GMap extends Component {
           <Marker
             title={'The marker`s title will appear as a tooltip.'}
             name={'SOMA'}
-            position={{lat: 29.951065799, lng: -90.0715323}} />
+            position={{lat: 29.9574443, lng: -90.06293540000001}} />
         </Map>
       </div>
     );
