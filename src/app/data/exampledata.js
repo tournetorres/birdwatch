@@ -1,4 +1,3 @@
-
 window.exampleBirdData = [
     {
         "lng": -90.0365832,

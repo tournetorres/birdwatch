@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Route, Switch } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 
@@ -17,33 +18,27 @@ class SignUp extends Component {
       password: '',
     };
   }
-  handleClick(event) {
-    var apiBaseUrl = 'http://localhost:3000/';
-    var self = this;
-    var payload={
-      "user":this.state.username,
-      "password":this.state.password
+
+  handleClick() {
+    const apiBaseUrl = 'http://localhost:3000/';
+
+    const payload = {
+      "username": this.state.username,
+      "password": this.state.password,
     };
-    axios.post(apiBaseUrl+'login', payload)
-    .then(function (response) {
-      console.log(response);
-    if(response.status == 200){
-      console.log("Login successfull");
-    var uploadScreen=[];
-    uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
-    self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
-    }
-    else if(response.status == 204){
-      console.log("Username password do not match");
-      alert("username password do not match")
-    }
-    else{
-      console.log("Username does not exists");
-      alert("Username does not exist");
-    }
-    })
-    .catch(function (error) {
-      console.log(error);
+
+    axios.post(apiBaseUrl+'signup', payload) // does it work if we get rid of apiBaseUrl and only use the endpoint ex: '/signup'
+    .then((response) => {
+      if (response.status === 200) {
+        // if sign up successful redirect to login page
+        <Route path='/login' component={Login}/>
+      } else {
+          // refresh the SignUp page
+        <Route path='/signup' component={SignUp}/>
+      }
+    })   
+    .catch((error) => {
+      console.error(error);
     });
   }
   render() {
