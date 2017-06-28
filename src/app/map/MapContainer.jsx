@@ -21,10 +21,7 @@ class MapContainer extends Component {
   }
 
   birdCatcher(data) {
-    console.log(data, "birds caught!!");
-    console.log(this.state.birdData, 'old data')
     this.setState({ birdData: data.data }, () => {
-      console.log(this.state.birdData, "new data")
     });
   }
 
@@ -44,13 +41,13 @@ class MapContainer extends Component {
                 </IconMenu>
               }
             />
-            <SimpleForm birdCatcher={this.birdCatcher} /> 
+            <SimpleForm birdCatcher={this.birdCatcher} />
             <br />
-            <GMap google={window.google} birdData={this.state.birdData}/>
+            <GMap google={window.google} birdData={this.state.birdData} />
           </div>
         </MuiThemeProvider>
       </div>
-    )
+    );
   }
 }
 

@@ -64,7 +64,6 @@ app.post('/map', (req, res) => {
   const latLng = req.body;
   const obj = latLng;
   const birdCatcher = (data) => {
-    console.log(JSON.parse(data))
     res.writeHead(200, { contentType: 'application/json' });
     res.write(data);
     res.end();
