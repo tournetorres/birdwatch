@@ -9,6 +9,8 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
+import Comment from './Comment.jsx';
+import Feed from './Feed.jsx';
 
 
 class Timeline extends Component {
@@ -29,6 +31,8 @@ class Timeline extends Component {
               }
             />
             <h1> Your in the Timeline </h1>
+            <Comment />
+            <Feed />
           </div>
         </MuiThemeProvider>
       </div>
