@@ -7,7 +7,7 @@ import SplashPage from './SplashPage.jsx';
 const LoginContainer = () => (
   <main>
     <Switch>
-      <Route path="/" component={SplashPage} />
+      <Route exact path="/" component={SplashPage} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
     </Switch>

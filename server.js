@@ -31,7 +31,7 @@
   });
 
   app.post('/login', (req, res) => {
-    db.getUser(req.body.user)
+    db.getUser(req.body.username)
     .then(data => {
       console.log(data, 'data from users');      
       res.writeHead(200);
@@ -41,10 +41,10 @@
   });
 
   app.post('/signup', (req, res) => {
-    db.getUser(req.body.user)
+    db.getUser(req.body.username)
     .then(data => {
       if (data.length === 0) {
-        db.createUser(req.body.user, req.body.password)
+        db.createUser(req.body.username, req.body.password)
         .then(data => {
           console.log(data);
           res.writeHead(200);
