@@ -1,15 +1,6 @@
   const express = require('express');
   const birdCall = require('./lib/birdApi');
 
-<<<<<<< HEAD
-// const db = require('./lib/psql');
-require('dotenv').config();
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const passport = require('passport');
-const strategy = require('passport-local').Strategy;
-=======
   const db = require('./lib/psql');
   require('dotenv').config();
   const cookieParser = require('cookie-parser');
@@ -17,7 +8,6 @@ const strategy = require('passport-local').Strategy;
   const session = require('express-session');
   const passport = require('passport');
   const strategy = require('passport-local').Strategy;
->>>>>>> e4c67b33a61d131afa5750b1ead31fba110e2014
 
   const PORT = process.env.PORT;
   const app = express();
