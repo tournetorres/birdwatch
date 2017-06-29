@@ -4,9 +4,8 @@ import MapContainer from './map/MapContainer.jsx';
 import Login from './login/Login.jsx';
 import SignUp from './login/SignUp.jsx';
 import SplashPage from './login/SplashPage.jsx';
-import { Route, Switch, Router} from 'react-router';
-import Header from './Header.jsx';
-import PropTypes from 'prop-types';
+import { Route, Switch, Router } from 'react-router';
+// import './assets/stylesheets/styles.scss';
 
 
 const App = () => (
@@ -18,6 +17,7 @@ const App = () => (
       <Route path="/signup" component={SignUp} />
       <Route path="/timeline" component={TimeLine} />
       <Route path="/logout" component={SplashPage} />
+      {/*<Route path='*' component={notFound} />*/}
     </Switch>
   </div>
 );

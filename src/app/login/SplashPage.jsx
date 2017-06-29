@@ -7,14 +7,15 @@ import React from 'react';
 injectTapEventPlugin();
 
 const style = {
-  margin: 12,
+  margin: 60,
+
 };
 
 const SplashPage = () => (
   <div>
     <MuiThemeProvider>
       <div>
-        <h1>Birdwatch</h1>
+        <img src="http://i67.tinypic.com/anlnja.png" />
         <RaisedButton label="Login" containerElement={<Link to="/login" />} primary={true} style={style} />
         <RaisedButton label="SignUp" containerElement={<Link to="/signup" />} primary={true} style={style} />
       </div>
