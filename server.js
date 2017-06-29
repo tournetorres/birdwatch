@@ -83,7 +83,9 @@ app.post('/signup', (req, res) => {
 
 app.post('/logout', (req, res) => {
   req.session.destroy(() => {
+    console.log('hit')
     res.writeHead(200);
+    res.write('loggedout');
     res.end();
   });
 });

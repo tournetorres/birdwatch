@@ -25,11 +25,11 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      path: this.props.location.pathname
     };
   }
 
   handleClick() {
+    console.log(this)
     const payload = {
       username: this.state.username,
       password: this.state.password,
