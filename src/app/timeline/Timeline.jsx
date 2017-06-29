@@ -10,7 +10,6 @@ const Timeline = () => (
     <MuiThemeProvider>
       <div>
         <Header />
-        <h1> Your in the Timeline </h1>
         <Comment />
         <Feed />
       </div>
