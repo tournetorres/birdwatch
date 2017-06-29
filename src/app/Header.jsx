@@ -12,10 +12,10 @@ import Route from 'react-router';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.logsOut = this._logsOut.bind(this);
+    this.logsOut = this.logsOut.bind(this);
   }
-  _logsOut() {
-    axios.post('/logout', {logmeout: true})
+  logsOut() {
+    axios.post('/logout', { logmeout: true });
   }
   render() {
     return (
@@ -23,20 +23,21 @@ class Header extends Component {
         <MuiThemeProvider>
           <div>
             <AppBar
+              style={{ backgroundColor: '#27876f' }}
               title="Bird Watch"
               iconElementLeft={
                 <IconMenu
                   iconButtonElement={<IconButton><MoreVertIcon color="white" /></IconButton>} >
                   <MenuItem primaryText="Map" containerElement={<Link to='/map' />} />
                   <MenuItem primaryText="Timeline" containerElement={<Link to='/timeline' />} />
-                  <MenuItem primaryText="Logout" containerElement={<Link to='/logout' />} onClick={e => this.logsOut(e)}/>
+                  <MenuItem primaryText="Logout" containerElement={<Link to='/logout' />} onClick={e => this.logsOut(e)} />
                 </IconMenu>
               }
             />
           </div>
         </MuiThemeProvider>
-      </div> 
-      )
+      </div>
+    )
   }
 }
 

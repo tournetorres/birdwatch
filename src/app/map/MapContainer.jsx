@@ -15,7 +15,6 @@ class MapContainer extends Component {
   }
 
   birdCatcher(data) {
-    console.log(data, 'birds caught!!');
     this.setState({ birdData: data.data }, () => {
       console.log(this.state.birdData, 'new data')
     });

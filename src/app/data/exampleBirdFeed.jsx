@@ -1,0 +1,3 @@
+const exampleBirdFeed = [{"bird":"star","location":"gentilly","username":"man"},{"bird":"bluebird","location":"park","username":"rose"},{"bird":"","location":"","username":"rose"},{"bird":"","location":"","username":"rose"},{"bird":"","location":"","username":"rose"},{"bird":"cardinal","location":"stuff","username":"rose"},{"bird":"cardinal","location":"Houma","username":"rose"},{"bird":"bluebird","location":"op spark","username":"daniel"},{"bird":"cardinal","location":"park","username":"david"},{"bird":null,"location":"hey","username":"daniel"}];
+
+export default exampleBirdFeed; 

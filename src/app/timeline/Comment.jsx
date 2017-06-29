@@ -11,10 +11,10 @@ class Comment extends Component {
     this.submitText = this.submitText.bind(this);
   }
   submitText() {
-    const message = { birdType: this.state.birdType, location: this.state.location }
+    const message = { birdType: this.state.birdType, location: this.state.location };
     axios.post('/birds', message)
     .then( (response) => {
-      console.log(response, 'success')
+      console.log(response, 'success');
     })
     .catch(err => console.log(err));
   }
@@ -62,13 +62,13 @@ class Comment extends Component {
           >
           Log the location and type of bird you have spotted.
           <br />
-            <TextField name="text" hintText="birdType" onChange={(e, newVal) => this.setState({ birdType: newVal })} />
+            <TextField name="text" hintText="bird type" onChange={(e, newVal) => this.setState({ birdType: newVal })} />
             <TextField name="text" hintText="location" onChange={(e, newVal) => this.setState({ location: newVal })} />
             <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
               {actions}
             </div>
           </form>
-        </Dialog> 
+        </Dialog>
       </div>
     );
   }
