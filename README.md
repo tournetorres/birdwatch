@@ -1,5 +1,6 @@
+![img](https://ibb.co/gWFzyQ)
 # birdwatch
-![alt text] (http://i65.tinypic.com/a45u2s.png)
+
 
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
@@ -29,8 +30,7 @@
   > Wrap it up and give pointers where the reader should go next.
   
   
-  ![webpack] (https://webpack.github.io/assets/what-is-webpack.png)
-  ![react] (https://vincent.billey.me/talks/react-putting-js-in-your-face/assets/react-logo.png)
+  ![img](https://ibb.co/e9GTsk)
   ![react-router](http://img.ctolib.com/uploadImg/20170617/20170617081756_404.jpg)
   ![material-UI](https://cdn.worldvectorlogo.com/logos/material-ui.svg)
   ![babel](https://raw.githubusercontent.com/babel/logo/master/babel.png)
