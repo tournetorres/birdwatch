@@ -1,11 +1,22 @@
 import React from 'react';
+import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 
-const TimelinePost = ({ birdPost, key }) => (
-  <div className="row">
-    <div className="col s8 m10 l11">
-      <span className="username">{birdPost.username} spotted a {birdPost.bird} at {birdPost.location}</span>
-    </div>
-  </div>
+
+const TimelinePost = ({ birdPost, key }) =>(
+  <Card>
+    <CardHeader
+      title={"bird sighting by @" + birdPost.username}
+    />
+    <CardTitle
+      title={"type of bird: " + birdPost.bird}
+    />
+    <CardTitle
+      title={"location: " + birdPost.location}
+    />  
+    <CardText>
+      createdAt
+    </CardText>
+  </Card>
 );
 
 export default TimelinePost;

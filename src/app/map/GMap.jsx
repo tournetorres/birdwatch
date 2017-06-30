@@ -13,7 +13,6 @@ class GMap extends Component {
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
   }
-
   onMarkerClick(props, marker, e) {
     this.setState({
       selectedPlace: props,
@@ -21,7 +20,6 @@ class GMap extends Component {
       showingInfoWindow: true,
     });
   }
-
   render() {
     return (
       <div>

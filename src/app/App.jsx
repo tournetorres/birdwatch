@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { Route, Switch, Router, BrowserRouter } from 'react-router-dom';
+import React from 'react';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Login from './login/Login.jsx';
 import SignUp from './login/SignUp.jsx';
 import MapContainer from './map/MapContainer.jsx';
 import TimeLine from './timeline/Timeline.jsx';
 import SplashPage from './login/SplashPage.jsx';
 import NotFound from './NotFound.jsx';
+import './App.scss';
 
 
 const App = () => (

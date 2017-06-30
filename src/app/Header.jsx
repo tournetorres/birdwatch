@@ -7,7 +7,6 @@ import MenuItem from 'material-ui/MenuItem';
 import AppBar from 'material-ui/AppBar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Route from 'react-router';
 
 class Header extends Component {
   constructor(props) {
@@ -23,7 +22,7 @@ class Header extends Component {
         <MuiThemeProvider>
           <div>
             <AppBar
-              style={{ backgroundColor: '#27876f' }}
+              style={{ backgroundColor: '#221aba' }}
               title="Bird Watch"
               iconElementLeft={
                 <IconMenu
@@ -37,29 +36,8 @@ class Header extends Component {
           </div>
         </MuiThemeProvider>
       </div>
-    )
+    );
   }
 }
-
-
-() => (
-  <div>
-    <MuiThemeProvider>
-      <div>
-        <AppBar
-          title="Bird Watch"
-          iconElementLeft={
-            <IconMenu
-              iconButtonElement={<IconButton><MoreVertIcon color="white" /></IconButton>} >
-              <MenuItem primaryText="Map" containerElement={<Link to='/map' />} />
-              <MenuItem primaryText="Timeline" containerElement={<Link to='/timeline' />} />
-              <MenuItem primaryText="Logout" containerElement={<Link to='/logout' />} />
-            </IconMenu>
-          }
-        />
-      </div>
-    </MuiThemeProvider>
-  </div>    
-);
 
 export default Header;

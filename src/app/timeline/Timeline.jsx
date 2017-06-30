@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import RaisedButton from 'material-ui/RaisedButton';
-import Header from '../Header.jsx';
-import Comment from './Comment.jsx';
 import TimelinePost from './TimelinePost.jsx';
+import Header from '../Header.jsx';
+import Footer from './Footer.jsx';
+import Comment from './Comment.jsx';
 import exampleBirdData from '../data/exampleBirdFeed.jsx';
 import axios from 'axios';
 
@@ -17,10 +19,8 @@ class Timeline extends Component {
   }
   loadFeed() {
     axios.get('/birds').then((data) => {
-      console.log(this.state.birdFeed, 'birdfeed');
-      console.log(data.data);
       this.setState({ birdFeed: data.data });
-      console.log(this.state.birdFeed, 'after');
+      console.log(this.state.birdFeed, 'after posted');
     });
   }
   render() {
@@ -34,7 +34,8 @@ class Timeline extends Component {
           <div className="bird-feed">
             {this.state.birdFeed.map(birdPost =>
               <TimelinePost birdPost={birdPost} key={birdPost.id} />)}
-          </div>   
+          </div>
+          <Footer />
         </div>
       </MuiThemeProvider>
     </div>
