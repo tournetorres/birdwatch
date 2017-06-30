@@ -32,3 +32,5 @@
   
   
   ![img](https://i.imgur.com/THZD21G.png)
+  ![img](http://www.ceda.cz/files/logo/google/google_2016/icon_javascriptapi.png)
+  ![img](http://www.wils.org/wp-content/uploads/2014/12/CL_logo_CMYK.png)
