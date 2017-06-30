@@ -1,4 +1,4 @@
-![img](https://ibb.co/gWFzyQ)
+![img](https://i.imgur.com/fxfDLzw.png)
 # birdwatch
 
 
@@ -30,7 +30,7 @@
   > Wrap it up and give pointers where the reader should go next.
   
   
-  ![img](https://ibb.co/e9GTsk)
+  ![img](https://i.imgur.com/THZD21G.png)
   ![react-router](http://img.ctolib.com/uploadImg/20170617/20170617081756_404.jpg)
   ![material-UI](https://cdn.worldvectorlogo.com/logos/material-ui.svg)
   ![babel](https://raw.githubusercontent.com/babel/logo/master/babel.png)
