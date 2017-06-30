@@ -32,5 +32,6 @@
   
   
   ![img](https://i.imgur.com/THZD21G.png)
-  ![img](http://www.ceda.cz/files/logo/google/google_2016/icon_javascriptapi.png)
-  ![img](http://www.wils.org/wp-content/uploads/2014/12/CL_logo_CMYK.png)
+  ![img](https://www.appgeo.com/wp-content/uploads/directions_api-350x350.png)
+  ![img](https://ebirdhotspots.wikispaces.com/file/view/The_Cornell_Lab_of_Ornithology.png/591467806/The_Cornell_Lab_of_Ornithology.png)
+  ![img](https://modernizehq.com/assets/images/logos/express-logo.png)
