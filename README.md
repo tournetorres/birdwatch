@@ -31,6 +31,3 @@
   
   
   ![img](https://i.imgur.com/THZD21G.png)
-  ![react-router](http://img.ctolib.com/uploadImg/20170617/20170617081756_404.jpg)
-  ![material-UI](https://cdn.worldvectorlogo.com/logos/material-ui.svg)
-  ![babel](https://raw.githubusercontent.com/babel/logo/master/babel.png)
