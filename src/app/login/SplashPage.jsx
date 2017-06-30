@@ -9,14 +9,14 @@ injectTapEventPlugin();
 const style = {
   margin: 12,
   borderRadius: '25px',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#f7b748',
 };
 
 const SplashPage = () => (
   <div>
     <MuiThemeProvider>
       <div>
-        <img src="https://i.imgur.com/omXXinP.png" style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
+        <img src="https://i.imgur.com/y6xZVeF.png" style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
         <br />
         <div className="footer">
         <FlatButton label="Login" containerElement={<Link to="/login" />} style={style} fullWidth={true} />
