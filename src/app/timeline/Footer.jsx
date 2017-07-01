@@ -18,7 +18,7 @@ const style = {
   display: 'block',
   height: '100px',
   width: 'absolute',
-  background: '#221aba'
+  background: '#221aba',
 };
 
 class Footer extends Component {
@@ -43,16 +43,14 @@ class Footer extends Component {
             <Paper style={style} zDepth={1}>
               <BottomNavigation style={{ backgroundColor: '#221aba' }}>
                 <BottomNavigationItem
-                  label="Reload"
                   icon={fileDownload}
                   onClick={event => this.loadFeed(event)} 
                 />
                 <BottomNavigationItem
-                  label="Log Bird Sighting"
                   icon={messageIcon}
+                  containerElement={<Link to='/comment' />}
                 /> 
                 <BottomNavigationItem
-                  label="Birds Nearby"
                   icon={nearbyIcon}
                   containerElement={<Link to='/map' />}
                 />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MediaQuery from 'react-responsive';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
@@ -16,11 +17,11 @@ class Login extends Component {
     };
   }
   handleClick() {
-    const payload = {
+    const loginObj = {
       username: this.state.username,
       password: this.state.password,
     };
-    axios.post('/login', payload)
+    axios.post('/login', loginObj)
     .then((response) => {
       if (response.status === 200) { 
         console.log('sign up successful');
@@ -36,22 +37,26 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <MuiThemeProvider>
-          <div className="login">
-            <TextField
-              hintText="Enter your Username"
-              floatingLabelText="Username"
-              onChange={(event, newValue) => this.setState({ username: newValue })} />
-            <br />
-            <TextField
-              type="password"
-              hintText="Enter your Password"
-              floatingLabelText="Password"
-              onChange={(event, newValue) => this.setState({ password: newValue })} />
-            <br />
-            <RaisedButton label="Login" style={style} onClick={event => this.handleClick(event)} />
+        <MediaQuery query='(max-width: 1224px)'>
+          <div style={{ zoom: 2 }}>
+            <MuiThemeProvider>
+              <div className="login">
+                <TextField
+                  hintText="Enter your Username"
+                  floatingLabelText="Username"
+                  onChange={(event, newValue) => this.setState({ username: newValue })} />
+                <br />
+                <TextField
+                  type="password"
+                  hintText="Enter your Password"
+                  floatingLabelText="Password"
+                  onChange={(event, newValue) => this.setState({ password: newValue })} />
+                <br />
+                <RaisedButton label="Login" style={style} onClick={event => this.handleClick(event)} />
+              </div>
+            </MuiThemeProvider>
           </div>
-        </MuiThemeProvider>
+        </MediaQuery>    
       </div>
     );
   }

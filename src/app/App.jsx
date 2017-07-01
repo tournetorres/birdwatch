@@ -5,7 +5,7 @@ import SignUp from './login/SignUp.jsx';
 import MapContainer from './map/MapContainer.jsx';
 import TimeLine from './timeline/Timeline.jsx';
 import SplashPage from './login/SplashPage.jsx';
-import Comment from './timeline/Comment.jsx';
+import CommentPage from './timeline/Comment.jsx';
 import NotFound from './NotFound.jsx';
 import './App.scss';
 
@@ -19,7 +19,7 @@ const App = () => (
       <Route path="/signup" component={SignUp} />
       <Route path="/timeline" component={TimeLine} />
       <Route path="/logout" component={SplashPage} />
-      <Route path='/comment' component={Comment} />
+      <Route path='/comment' component={CommentPage} />
       <Route path="*" component={NotFound} />
     </Switch>
   </BrowserRouter>   

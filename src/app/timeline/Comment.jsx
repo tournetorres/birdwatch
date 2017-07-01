@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Dialog, FlatButton, TextField, RaisedButton } from 'material-ui/';
+import Message from 'material-ui/svg-icons/communication/comment';
+const messageIcon = <Message />
+// import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 class Comment extends Component {
   constructor(props) {
@@ -45,9 +48,10 @@ class Comment extends Component {
       />,
     ];
 
+
     return (
       <div>
-        <RaisedButton label="Log bird Sighting" onTouchTap={this.handleOpen} />
+        <RaisedButton label="Log bird Sighting" onTouchTap={this.handleOpen} icon={messageIcon} />
         <Dialog
           title="Log Bird Sightings"
           modal={true}
@@ -75,3 +79,4 @@ class Comment extends Component {
 };
 
 export default Comment;
+

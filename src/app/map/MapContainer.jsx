@@ -29,6 +29,7 @@ class MapContainer extends Component {
             <SimpleForm birdCatcher={this.birdCatcher} /> 
             <br />
             <GMap google={window.google} birdData={this.state.birdData} />
+            <br />
           </div>
         </MuiThemeProvider>
       </div>
