@@ -16,9 +16,9 @@ class Timeline extends Component {
     };
     this.loadFeed = this.loadFeed.bind(this);
   }
-  // componentDidMount(){
-  //   this.props.loadFeed();
-  // }
+  componentDidMount() {
+    this.loadFeed();
+  }
   loadFeed() {
     axios.get('/birds').then((data) => {
       this.setState({ birdFeed: data.data });

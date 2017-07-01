@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Dialog, FlatButton, TextField, RaisedButton } from 'material-ui/';
 import Message from 'material-ui/svg-icons/communication/comment';
+// import { grey50, yellow500 } from 'material-ui/styles/colors';
 const messageIcon = <Message />
-import { grey50, yellow500 } from 'material-ui/styles/colors';
 // import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import Geosuggest from 'react-geosuggest';
 
 class Comment extends Component {
   constructor(props) {
@@ -66,7 +67,15 @@ class Comment extends Component {
           Log the location and type of bird you have spotted.
           <br />
             <TextField name="text" hintText="bird type" onChange={(e, newVal) => this.setState({ birdType: newVal })} />
-            <TextField name="text" hintText="location" onChange={(e, newVal) => this.setState({ location: newVal })} />
+            <Geosuggest 
+              ref={el=>this._geoSuggest=el}
+              placeholder="Start typing!"
+              initialValue="New Orleans"
+              onSuggestSelect={this.onSuggestSelect}
+              location={new google.maps.LatLng(29.95106579999999, -90.0715323)}
+              radius="20"
+              onChange={ newVal => this.setState({ location: newVal }) } 
+            />
             <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
               {actions}
             </div>
@@ -75,7 +84,14 @@ class Comment extends Component {
       </div>
     );
   }
+  onSuggestSelect(suggest) {
+    console.log(suggest);
+  }
 };
 
 export default Comment;
+
+// ref={el=>this._geoSuggest=el}
+
+/*<TextField name="text" hintText="location" onChange={(e, newVal) => this.setState({ location: newVal })} />*/
 

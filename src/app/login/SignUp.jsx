@@ -6,6 +6,9 @@ import axios from 'axios';
 
 const style = {
   margin: 15,
+  backgroundColor: '#f7b748',
+  // display: 'block',
+  // position: 'relative',
 };
 
 class SignUp extends Component {
@@ -40,6 +43,9 @@ class SignUp extends Component {
       <div>
         <MuiThemeProvider>
           <div>
+          <img src="https://i.imgur.com/y6xZVeF.png" style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
+            <br />
+          <div className="signup">
             <TextField
               hintText="Enter your Username"
               floatingLabelText="Username"
@@ -52,6 +58,7 @@ class SignUp extends Component {
               onChange={(event, newValue) => this.setState({ password: newValue })}/>
             <br />
             <RaisedButton label="Sign up" primary={true} style={style} onClick={event => this.handleClick(event)}/>
+          </div>
           </div>
         </MuiThemeProvider>
       </div>

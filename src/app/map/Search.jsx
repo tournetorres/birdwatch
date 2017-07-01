@@ -11,7 +11,7 @@ class SimpleForm extends Component {
     this.onChange = address => this.setState({ address });
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
-
+  
   handleFormSubmit(event) {
     event.preventDefault();
 
