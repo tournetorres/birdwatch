@@ -11,7 +11,7 @@ const path = require('path');
 const PORT = process.env.PORT;
 const app = express();
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   console.log(`serving ${req.method} request for uri: ${req.url}`);
   if (req.body) {
     console.log(req.body);
@@ -129,6 +129,6 @@ app.get('/birds', (req, res) => {
   });
 });
 
-app.get('*', function (req, res) {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
