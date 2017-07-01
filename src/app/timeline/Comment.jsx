@@ -67,7 +67,7 @@ class Comment extends Component {
             <TextField name="text" hintText="bird type" onChange={(e, newVal) => this.setState({ birdType: newVal })} />
             <TextField name="text" hintText="location" onChange={(e, newVal) => this.setState({ location: newVal })} />
             <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
-              {actions.map(action => console.log(actions))}
+              {actions}
             </div>
           </form>
         </Dialog>
