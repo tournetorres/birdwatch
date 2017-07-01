@@ -35,7 +35,6 @@ class Timeline extends Component {
           <RaisedButton label="Load all Bird Sightings" onClick={event => this.loadFeed(event)} />
           <div className="bird-feed">
             {this.state.birdFeed.map((birdPost, index, arr) =>
-              
               <TimelinePost birdPost={birdPost} key={index} />)}
           </div>
           <Footer />
