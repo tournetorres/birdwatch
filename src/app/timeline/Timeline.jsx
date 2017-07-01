@@ -22,7 +22,7 @@ class Timeline extends Component {
   loadFeed() {
     axios.get('/birds').then((data) => {
       this.setState({ birdFeed: data.data });
-      console.log(this.state.birdFeed, 'after posted');
+      console.log(this.state.birdFeed, 'fetch birds');
     });
   }
   render() {
@@ -37,7 +37,7 @@ class Timeline extends Component {
             {this.state.birdFeed.map((birdPost, index, arr) =>
               <TimelinePost birdPost={birdPost} key={index} />)}
           </div>
-          <Footer />
+          <Footer loadFeed={this.loadFeed}/>
         </div>
       </MuiThemeProvider>
     </div>

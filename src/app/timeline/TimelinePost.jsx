@@ -10,7 +10,7 @@ const TimelinePost = ({ birdPost, key }) => (
       subtitle={"spotted " + Moment(birdPost.created).calendar()}
     />
     <CardTitle
-      title={"type of bird: " + birdPost.bird}
+      title={"bird: " + birdPost.bird}
     />
     <CardTitle
       title={"location: " + birdPost.location}
