@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom';
 import LocationOn from 'material-ui/svg-icons/communication/location-on';
 import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
 import exampleBirdData from '../data/exampleBirdFeed.jsx';
-import Comment from 'material-ui/svg-icons/communication/comment';
 import { grey50, yellow500 } from 'material-ui/styles/colors';
 import axios from 'axios';
 const fileDownload = <FileCloudDownload color={grey50} hoverColor={yellow500}/>
-const messageIcon = <Comment color={grey50} hoverColor={yellow500} />
 const nearbyIcon = <LocationOn color={grey50} hoverColor={yellow500} />
 
 const style = {
@@ -22,10 +20,8 @@ const style = {
 };
 
 class Footer extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
-    // this.state = {
-    //   birdFeed: exampleBirdData,
     };
   render(){
     return (
@@ -36,12 +32,8 @@ class Footer extends Component {
               <BottomNavigation style={{ backgroundColor: '#221aba' }}>
                 <BottomNavigationItem
                   icon={fileDownload}
-                  onClick={event => this.props.loadFeed()} 
+                  onClick={e => this.props.loadFeed(e)} 
                 />
-                <BottomNavigationItem
-                  icon={messageIcon}
-                  containerElement={<Link to='/comment' />}
-                /> 
                 <BottomNavigationItem
                   icon={nearbyIcon}
                   containerElement={<Link to='/map' />}
