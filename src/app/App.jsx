@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
-import TimeLine from './timeline/Timeline.jsx';
-import MapContainer from './map/MapContainer.jsx';
+import React from 'react';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Login from './login/Login.jsx';
 import SignUp from './login/SignUp.jsx';
+import MapContainer from './map/MapContainer.jsx';
+import TimeLine from './timeline/Timeline.jsx';
 import SplashPage from './login/SplashPage.jsx';
-import { Route, Switch, Router} from 'react-router';
-import Header from './Header.jsx';
-import PropTypes from 'prop-types';
+import CommentPage from './timeline/Comment.jsx';
+import NotFound from './NotFound.jsx';
+import './App.scss';
 
 
 const App = () => (
-  <div>
+  <BrowserRouter>
     <Switch>
       <Route exact path="/" component={SplashPage} />
       <Route path="/map" component={MapContainer} />
@@ -18,7 +19,9 @@ const App = () => (
       <Route path="/signup" component={SignUp} />
       <Route path="/timeline" component={TimeLine} />
       <Route path="/logout" component={SplashPage} />
+      <Route path='/comment' component={CommentPage} />
+      <Route path="*" component={NotFound} />
     </Switch>
-  </div>
+  </BrowserRouter>   
 );
 export default App;

@@ -15,7 +15,6 @@ class MapContainer extends Component {
   }
 
   birdCatcher(data) {
-    console.log(data, 'birds caught!!');
     this.setState({ birdData: data.data }, () => {
       console.log(this.state.birdData, 'new data')
     });
@@ -30,6 +29,7 @@ class MapContainer extends Component {
             <SimpleForm birdCatcher={this.birdCatcher} /> 
             <br />
             <GMap google={window.google} birdData={this.state.birdData} />
+            <br />
           </div>
         </MuiThemeProvider>
       </div>

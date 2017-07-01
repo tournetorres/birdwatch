@@ -1,6 +1,6 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
@@ -8,15 +8,20 @@ injectTapEventPlugin();
 
 const style = {
   margin: 12,
+  borderRadius: '25px',
+  backgroundColor: '#f7b748',
 };
 
 const SplashPage = () => (
   <div>
     <MuiThemeProvider>
       <div>
-        <h1>Birdwatch</h1>
-        <RaisedButton label="Login" containerElement={<Link to="/login" />} primary={true} style={style} />
-        <RaisedButton label="SignUp" containerElement={<Link to="/signup" />} primary={true} style={style} />
+        <img src="https://i.imgur.com/y6xZVeF.png" style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
+        <br />
+        <div className="footer">
+        <FlatButton label="Login" containerElement={<Link to="/login" />} style={style} fullWidth={true} />
+        <FlatButton label="SignUp" containerElement={<Link to="/signup" />} style={style} fullWidth={true} />
+        </div>
       </div>
     </MuiThemeProvider>
   </div>
