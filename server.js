@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
+const path = require('path');
 
 const PORT = process.env.PORT;
 const app = express();
@@ -126,4 +127,8 @@ app.get('/birds', (req, res) => {
     res.write(JSON.stringify(data));
     res.end();
   });
+});
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, './public/index.html'));
 });
