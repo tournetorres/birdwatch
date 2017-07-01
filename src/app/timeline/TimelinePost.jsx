@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
-import Moment from 'moment';
+import Moment from 'moment-timezone';
 
 
 const TimelinePost = ({ birdPost, key }) => (
