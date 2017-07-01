@@ -34,10 +34,10 @@ class Timeline extends Component {
           <Comment />
           <RaisedButton label="Load all Bird Sightings" onClick={event => this.loadFeed(event)} />
           <div className="bird-feed">
-            {this.state.birdFeed.map((birdPost, index, arr) =>
+            {this.state.birdFeed.map((birdPost, index) =>
               <TimelinePost birdPost={birdPost} key={index} />)}
           </div>
-          <Footer loadFeed={this.loadFeed}/>
+          <Footer loadFeed={this.loadFeed} />
         </div>
       </MuiThemeProvider>
     </div>

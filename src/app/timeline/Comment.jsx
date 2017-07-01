@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Dialog, FlatButton, TextField, RaisedButton } from 'material-ui/';
 import Message from 'material-ui/svg-icons/communication/comment';
 const messageIcon = <Message />
+import { grey50, yellow500 } from 'material-ui/styles/colors';
 // import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 class Comment extends Component {
@@ -21,11 +22,11 @@ class Comment extends Component {
     })
     .catch(err => console.log(err));
   }
-  handleClose() {
-    this.setState({ open: false });
-  }
   handleOpen() {
     this.setState({ open: true });
+  }
+  handleClose() {
+    this.setState({ open: false });
   }
   render() {
     const actions = [
