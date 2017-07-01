@@ -34,20 +34,17 @@ class Comment extends Component {
         label="Reset"
         secondary={true}
         style={{ float: 'left' }}
-        key={i}
       />,
       <FlatButton
         label="Cancel"
         primary={true}
         onClick={this.handleClose}
-        key={i}
       />,
       <FlatButton
         type="submit"
         label="Submit"
         primary={true}
         onClick={this.submitText}
-        key={i}
       />,
     ];
     return (
