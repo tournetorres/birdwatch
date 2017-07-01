@@ -22,19 +22,11 @@ const style = {
 };
 
 class Footer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      birdFeed: exampleBirdData,
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   birdFeed: exampleBirdData,
     };
-    this.loadFeed = this.loadFeed.bind(this);
-  }
-  loadFeed() {
-    axios.get('/birds').then((data) => {
-      this.setState({ birdFeed: data.data });
-      console.log(this.state.birdFeed, 'after posted');
-    });
-  }
   render(){
     return (
       <div>
@@ -44,7 +36,7 @@ class Footer extends Component {
               <BottomNavigation style={{ backgroundColor: '#221aba' }}>
                 <BottomNavigationItem
                   icon={fileDownload}
-                  onClick={event => this.loadFeed(event)} 
+                  onClick={event => this.props.loadFeed()} 
                 />
                 <BottomNavigationItem
                   icon={messageIcon}
