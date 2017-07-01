@@ -69,12 +69,12 @@ class Comment extends Component {
             <TextField name="text" hintText="bird type" onChange={(e, newVal) => this.setState({ birdType: newVal })} />
             <Geosuggest 
               ref={el=>this._geoSuggest=el}
-              placeholder="Start typing!"
-              initialValue="New Orleans"
-              onSuggestSelect={this.onSuggestSelect}
+              placeholder="location"
+              initalValue="New Orleans"
+              onSuggestSelect={(val) => this.setState({ location: val.description })}
+              onChange={this.onChange}
               location={new google.maps.LatLng(29.95106579999999, -90.0715323)}
               radius="20"
-              onChange={ newVal => this.setState({ location: newVal }) } 
             />
             <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
               {actions}
@@ -84,14 +84,6 @@ class Comment extends Component {
       </div>
     );
   }
-  onSuggestSelect(suggest) {
-    console.log(suggest);
-  }
 };
 
-export default Comment;
-
-// ref={el=>this._geoSuggest=el}
-
-/*<TextField name="text" hintText="location" onChange={(e, newVal) => this.setState({ location: newVal })} />*/
-
+export default Comment; 

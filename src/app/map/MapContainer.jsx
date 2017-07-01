@@ -13,13 +13,11 @@ class MapContainer extends Component {
     };
     this.birdCatcher = this.birdCatcher.bind(this);
   }
-
   birdCatcher(data) {
     this.setState({ birdData: data.data }, () => {
       console.log(this.state.birdData, 'new data')
     });
   }
-
   render() {
     return (
       <div>
