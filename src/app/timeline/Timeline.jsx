@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import RaisedButton from 'material-ui/RaisedButton';
 import TimelinePost from './TimelinePost.jsx';
 import Header from '../Header.jsx';
@@ -35,8 +34,9 @@ class Timeline extends Component {
           <Comment />
           <RaisedButton label="Load all Bird Sightings" onClick={event => this.loadFeed(event)} />
           <div className="bird-feed">
-            {this.state.birdFeed.map(birdPost =>
-              <TimelinePost birdPost={birdPost} key={birdPost.id} />)}
+            {this.state.birdFeed.map((birdPost, index, arr) =>
+              
+              <TimelinePost birdPost={birdPost} key={index} />)}
           </div>
           <Footer />
         </div>
