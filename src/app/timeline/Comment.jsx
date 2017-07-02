@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Geosuggest from 'react-geosuggest';
+import axios from 'axios';
 import { Dialog, FlatButton, TextField, RaisedButton } from 'material-ui/';
-import Message from 'material-ui/svg-icons/communication/comment';
+import Message from 'material-ui/svg-icons/communication/textsms';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Paper from 'material-ui/Paper';
+import { yellow500, indigo1A237E } from 'material-ui/styles/colors';
 
-const messageIcon = <Message />;
+const messageIcon = <Message color={indigo1A237E} />;
+
+const style = {
+  // backgroundColor: '#f7b748',
+  display: 'block',
+  position: 'relative',
+  height: 'absolute',
+  padding: '32px',
+};
 
 class Comment extends Component {
   constructor(props) {
@@ -51,39 +62,47 @@ class Comment extends Component {
     ];
     return (
       <div>
-        <RaisedButton label="Log bird Sighting" onTouchTap={this.handleOpen} icon={messageIcon} />
-        <Dialog
-          title="Log Bird Sightings"
-          modal={true}
-          open={this.state.open}
-        >
-          <form 
-            action='/bird'
-            method='POST' 
-            onSubmit={(e) => {
-              e.preventDefault();
-              this.handleClose(); }}
-          >
-          Log the location and type of bird you have spotted.
-          <br />
-            <TextField name="text" hintText="bird type" onChange={(e, newVal) => this.setState({ birdType: newVal })} />
-            <Geosuggest 
-              ref={el=>this._geoSuggest=el}
-              placeholder="location"
-              initalValue="New Orleans"
-              onSuggestSelect={(val) => this.setState({ location: val.description })}
-              onChange={this.onChange}
-              location={new google.maps.LatLng(29.95106579999999, -90.0715323)}
-              radius="20"
-            />
-            <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
-              {actions}
-            </div>
-          </form>
-        </Dialog>
-      </div>
+        <MuiThemeProvider>
+          <div>
+            <Paper style={{ height: '100px', width: 'absolute', display: 'block' }} zDepth={1}>
+              <div>
+                <RaisedButton label="Log bird Sighting" onTouchTap={this.handleOpen} icon={messageIcon} style={style}/>
+                <Dialog
+                  title="Log Bird Sightings"
+                  modal={true}
+                  open={this.state.open}
+                >
+                  <form 
+                    action='/bird'
+                    method='POST' 
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      this.handleClose(); }}
+                  >
+                  Log the location and type of bird you have spotted.
+                  <br />
+                    <TextField name="text" hintText="bird type" onChange={(e, newVal) => this.setState({ birdType: newVal })} />
+                    <Geosuggest 
+                      ref={el=>this._geoSuggest=el}
+                      placeholder="location"
+                      initalValue="New Orleans"
+                      onSuggestSelect={(val) => this.setState({ location: val.description })}
+                      onChange={this.onChange}
+                      location={new google.maps.LatLng(29.95106579999999, -90.0715323)}
+                      radius="20"
+                    />
+                    <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
+                      {actions}
+                    </div>
+                  </form>
+                </Dialog>
+              </div>
+            </Paper>
+          </div>
+        </MuiThemeProvider>
+      </div>       
     );
   }
-};
+}
 
 export default Comment; 

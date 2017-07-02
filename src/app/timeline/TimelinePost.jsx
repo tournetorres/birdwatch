@@ -5,16 +5,16 @@ import Moment from 'moment-timezone';
 
 const TimelinePost = ({ birdPost, key }) => (
   <Card>
+    <CardText>
+      {"Bird: " + birdPost.bird}
+      <br />
+      <br />
+      {"Location: " + birdPost.location}
+    </CardText>   
     <CardHeader
       title={"bird sighting by @" + birdPost.username}
       subtitle={"spotted " + Moment(birdPost.created).calendar()}
     />
-    <CardTitle
-      title={"bird: " + birdPost.bird}
-    />
-    <CardTitle
-      title={"location: " + birdPost.location}
-    />   
   </Card>
 );
 
