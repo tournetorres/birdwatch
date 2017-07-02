@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Geosuggest from 'react-geosuggest';
 import { Dialog, FlatButton, TextField, RaisedButton } from 'material-ui/';
 import Message from 'material-ui/svg-icons/communication/comment';
-// import { grey50, yellow500 } from 'material-ui/styles/colors';
-const messageIcon = <Message />
-// import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-import Geosuggest from 'react-geosuggest';
+
+const messageIcon = <Message />;
 
 class Comment extends Component {
   constructor(props) {
@@ -20,6 +19,7 @@ class Comment extends Component {
     axios.post('/birds', message)
     .then( (response) => {
       console.log(response, 'success');
+      this.props.loadFeed();
     })
     .catch(err => console.log(err));
   }

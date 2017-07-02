@@ -19,7 +19,7 @@ const App = () => (
       <Route path="/signup" component={SignUp} />
       <Route path="/timeline" component={TimeLine} />
       <Route path="/logout" component={SplashPage} />
-      <Route path='/comment' component={CommentPage} />
+      <Route path="/comment" component={CommentPage} />
       <Route path="*" component={NotFound} />
     </Switch>
   </BrowserRouter>   

@@ -10,4 +10,3 @@ const NotFound = () => (
 ); 
 
 export default NotFound;
-// "https://i.imgur.com/4J6b5v7.png"

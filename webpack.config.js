@@ -3,8 +3,6 @@ const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const HtmlWebpackPluginConfig
 
 const config = {
   entry: './src/index.js',
@@ -27,10 +25,10 @@ const config = {
       },
       {
         test: /\.scss$/, // files ending with.scss
-        use: ExtractTextWebpackPlugin.extract({ // extract method
+        use: ['css-hot-loader'].concat(ExtractTextWebpackPlugin.extract({ // extract method
           use: ['css-loader', 'sass-loader'],
           fallback: 'style-loader',  //fallback for any CSS not extracted
-        }),
+        })),
       },
       {
         test: /\.jsx$/, // all files ending with .jsx
@@ -65,7 +63,6 @@ const config = {
   plugins: [
     new ExtractTextWebpackPlugin('styles.css'), // call and name our css file
     new webpack.optimize.UglifyJsPlugin(),
-    // new HtmlWebpackPlugin(),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './public'), // url to serve HTML contents from
