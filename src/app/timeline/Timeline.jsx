@@ -16,9 +16,22 @@ class Timeline extends Component {
     };
     this.loadFeed = this.loadFeed.bind(this);
   }
-  // componentDidMount(){
-  //   this.props.loadFeed();
+  componentDidMount() {
+    this.loadFeed();
+  }
+  // componentWillMount() {
   // }
+  // componentWillUnMount() {
+  //   window.addEventListener('scroll', this.handleScroll);
+  // }
+  // handleScroll() {
+  //     var body = event.srcElement.body
+  //     // When the client reaches at the bottom of the page, get next page
+  //     if (body.clientHeight + body.scrollTop >= body.offsetHeight) {
+  //         this.loadFeed()
+  //     }
+  // },
+
   loadFeed() {
     axios.get('/birds').then((data) => {
       this.setState({ birdFeed: data.data });
@@ -31,8 +44,7 @@ class Timeline extends Component {
       <MuiThemeProvider>
         <div>
           <Header />
-          <Comment />
-          <RaisedButton label="Load all Bird Sightings" onClick={event => this.loadFeed(event)} />
+          <Comment loadFeed={this.loadFeed}/>
           <div className="bird-feed">
             {this.state.birdFeed.map((birdPost, index) =>
               <TimelinePost birdPost={birdPost} key={index} />)}
