@@ -121,11 +121,24 @@ app.post('/map', (req, res) => {
 
 // get users most recent birds logged in db
 app.get('/birds', (req, res) => {
-  db.getBirdsInDb(15)
+  db.getBirdsInDb(20)
   .then(data => {
     res.writeHead(200);
     res.write(JSON.stringify(data));
     res.end();
+  });
+});
+
+app.get('/profile', (req, res) => {
+  db.getUser(req.session.user)
+  .then(data => {
+    let id = data[0].id;
+    db.getBirdsByUser(id)
+    .then(data => {
+      res.writeHead(200);
+      res.write(JSON.stringify(data));
+      res.end();
+    });
   });
 });
 

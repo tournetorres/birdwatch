@@ -10,7 +10,6 @@ import { yellow500, indigo1A237E } from 'material-ui/styles/colors';
 const messageIcon = <Message color={indigo1A237E} />;
 
 const style = {
-  // backgroundColor: '#f7b748',
   display: 'block',
   position: 'relative',
   height: 'absolute',
