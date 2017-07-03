@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Geosuggest from 'react-geosuggest';
 import axios from 'axios';
 import { Dialog, FlatButton, TextField, RaisedButton } from 'material-ui/';
-import Message from 'material-ui/svg-icons/communication/textsms';
+import Message from 'material-ui/svg-icons/maps/add-location';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import { yellow500, indigo1A237E } from 'material-ui/styles/colors';
@@ -43,20 +43,20 @@ class Comment extends Component {
   render() {
     const actions = [
       <FlatButton
+        key={1}
         type="reset"
         label="Reset"
-        secondary={true}
         style={{ float: 'left' }}
       />,
       <FlatButton
+        key={2}
         label="Cancel"
-        primary={true}
         onClick={this.handleClose}
       />,
       <FlatButton
+        key={3}
         type="submit"
         label="Submit"
-        primary={true}
         onClick={this.submitText}
       />,
     ];
@@ -77,13 +77,14 @@ class Comment extends Component {
                     method='POST' 
                     onSubmit={(e) => {
                       e.preventDefault();
-                      this.handleClose(); }}
+                      this.handleClose();
+                    }}
                   >
                   Log the location and type of bird you have spotted.
                   <br />
                     <TextField name="text" hintText="bird type" onChange={(e, newVal) => this.setState({ birdType: newVal })} />
                     <Geosuggest 
-                      ref={el=>this._geoSuggest=el}
+                      ref={el => this._geoSuggest=el}
                       placeholder="location"
                       initalValue="New Orleans"
                       onSuggestSelect={(val) => this.setState({ location: val.description })}
@@ -100,7 +101,7 @@ class Comment extends Component {
             </Paper>
           </div>
         </MuiThemeProvider>
-      </div>       
+      </div>     
     );
   }
 }

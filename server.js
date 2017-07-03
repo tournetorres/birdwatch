@@ -63,8 +63,8 @@ app.post('/signup', (req, res) => {
   db.getUser(req.body.username)
   .then((data) => {
     if (data.length === 0) {
-      let salt = bcrypt.genSaltSync(10);
-      let hashedPass = bcrypt.hashSync(req.body.password, salt);
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPass = bcrypt.hashSync(req.body.password, salt);
       db.createUser(req.body.username, hashedPass, salt)
       .then(data => {
         req.session.regenerate(() => {
@@ -84,7 +84,7 @@ app.post('/signup', (req, res) => {
 
 app.post('/logout', (req, res) => {
   req.session.destroy(() => {
-    console.log('hit')
+    console.log('hit');
     res.writeHead(200);
     res.write('loggedout');
     res.end();
@@ -121,7 +121,7 @@ app.post('/map', (req, res) => {
 
 // get users most recent birds logged in db
 app.get('/birds', (req, res) => {
-  db.getBirdsInDb(10)
+  db.getBirdsInDb(15)
   .then(data => {
     res.writeHead(200);
     res.write(JSON.stringify(data));

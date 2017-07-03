@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom';
 import LocationOn from 'material-ui/svg-icons/communication/location-on';
 import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
 import { grey50, yellow500 } from 'material-ui/styles/colors';
-// import ReactDOM from 'react-dom';
 
-const fileDownload = <FileCloudDownload color={grey50} hoverColor={yellow500} />
-const nearbyIcon = <LocationOn color={grey50} hoverColor={yellow500} />
-
+const fileDownload = <FileCloudDownload color={grey50} hoverColor={yellow500} />;
+const nearbyIcon = <LocationOn color={grey50} hoverColor={yellow500} />;
 
 const style = {
   margin: '0 auto',
@@ -24,13 +22,7 @@ class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = { scroll: false };
-    // this.topFunction = this.topFunction.bind(this);  
   }
-  // topFunction() {
-  //   // console.log('hi');
-  //   console.log(this, 'in top');
-  //   ReactDOM.findDOMNode(this).scrollTop = 0
-  // }  
   render() {
     return (
       <div>
@@ -40,11 +32,11 @@ class Footer extends Component {
               <BottomNavigation style={{ backgroundColor: '#221aba' }}>
                 <BottomNavigationItem
                   icon={fileDownload}
-                  onClick={e => this.props.loadFeed(e) }
+                  onClick={() => this.props.loadFeed()}
                 />
                 <BottomNavigationItem
                   icon={nearbyIcon}
-                  containerElement={<Link to='/map' />}
+                  containerElement={<Link to="/map" />}
                 />
               </BottomNavigation>
             </Paper>

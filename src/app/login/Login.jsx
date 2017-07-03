@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import PropTypes from 'prop-types';
 import axios from 'axios';
+import logo from '../../assets/images/bwlogo.png';
 
 const style = {
-  margin: 15,
+  margin: 0,
   backgroundColor: '#f7b748',
-  display: 'block',
   position: 'relative',
 };
 class Login extends Component {
@@ -25,7 +26,7 @@ class Login extends Component {
     };
     axios.post('/login', loginObj)
     .then((response) => {
-      if (response.status === 200) { 
+      if (response.status === 200) {
         console.log('sign up successful');
         this.props.history.push('/timeline');
       } else if (response.status === 204) {
@@ -33,35 +34,43 @@ class Login extends Component {
       }
     })
     .catch((error) => {
-      console.log(error,'Error');
-    })
+      console.log(error, 'Error');
+    });
   }
   render() {
     return (
       <div>
         <MuiThemeProvider>
           <div>
-          <img src="https://i.imgur.com/y6xZVeF.png" style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
-          <br />
-          <div className="login">
-            <TextField
-              hintText="Enter your Username"
-              floatingLabelText="Username"
-              onChange={(event, newValue) => this.setState({ username: newValue })} />
+            <img src={logo} alt="logo" style={{ width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
             <br />
-            <TextField
-              type="password"
-              hintText="Enter your Password"
-              floatingLabelText="Password"
-              onChange={(event, newValue) => this.setState({ password: newValue })} />
-            <br />
-            <FlatButton label="Login" style={style} onClick={event => this.handleClick(event)} />
+            <div className="login" >
+              <TextField
+                hintText="Enter your Username"
+                floatingLabelText="Username"
+                fullWidth
+                onChange={(event, newValue) => this.setState({ username: newValue })}
+              />
+              <br />
+              <TextField
+                type="password"
+                hintText="Enter your Password"
+                floatingLabelText="Password"
+                fullWidth
+                onChange={(event, newValue) => this.setState({ password: newValue })}
+              />
+              <br />
+              <FlatButton label="Login" style={style} fullWidth onClick={event => this.handleClick(event)} />
+            </div>
           </div>
-          </div>
-        </MuiThemeProvider> 
+        </MuiThemeProvider>
       </div>
     );
   }
 }
+
+Login.propType = {
+  history: PropTypes.object.isRequired,
+};
 
 export default Login;
