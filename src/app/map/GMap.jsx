@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Map, { Marker, InfoWindow } from 'google-maps-react';
+import BirdLogo from '../../assets/images/cursorBW.png';
+import Moment from 'moment-timezone';
 
 class GMap extends Component {
   constructor(props) {
@@ -14,13 +15,13 @@ class GMap extends Component {
     this.onMarkerClick = this.onMarkerClick.bind(this);
   }
   onMarkerClick(props, marker) {
+    console.log(marker, 'this marker');
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true,
     });
   }
-
   render() {
     return (
       <div>
@@ -30,24 +31,29 @@ class GMap extends Component {
           initialCenter={this.props.latLng}
           center={this.props.latLng}
         >
-          {this.props.birdData.map((bird, i) => {
-            const ltd = bird.lat;
-            const lon = bird.lng;
-            return (
-              <Marker
-                onClick={this.onMarkerClick}
-                name={`${bird.comName} (${bird.howMany})`}
-                key={i}
-                position={{ lat: ltd, lng: lon }}
-              />
-            );
-          })}
+        {this.props.birdData.map((bird, i, arr) => {
+          let ltd = bird.lat;
+          let lon = bird.lng;
+          return (
+            <Marker
+              onClick={this.onMarkerClick}
+              name={`${bird.comName}(${bird.howMany})`}
+              date={`Last seen ${Moment(bird.obsDt).fromNow()}`}
+              loc={`Sci name: ${bird.sciName}`}
+              key={i}
+              icon={BirdLogo}
+              position={{ lat: ltd, lng: lon }}
+            />
+          );
+        })}
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
           >
             <div>
-              <h1>{this.state.selectedPlace.name}</h1>
+              <center><h2>{this.state.selectedPlace.name}</h2></center>
+              <center><h4>{this.state.selectedPlace.loc}</h4></center>
+              <center><h4>{this.state.selectedPlace.date}</h4></center>
             </div>
           </InfoWindow>
         </Map>
@@ -55,10 +61,5 @@ class GMap extends Component {
     );
   }
 }
-
-GMap.propType = {
-  birdData: PropTypes.array.isRequired,
-  google: PropTypes.object.isRequired,
-};
 
 export default GMap;
