@@ -39,8 +39,8 @@
 
 
 ## How to run the app on localhost ##
-  > npm run build //starts bundling process with webpack
-    > npm start //Only run for front-end use. Not connected to server
+  > npm run build //starts bundling process with webpack <br>
+    > npm start //Only run for front-end use. Not connected to server <br>
   > nodemon server.js //starts the server and connects all components
 
 ## Resources ##
