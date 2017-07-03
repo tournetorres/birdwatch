@@ -22,7 +22,7 @@ const App = () => (
       <Route path="/comment" component={CommentPage} />
       <Route path="*" component={NotFound} />
     </Switch>
-  </BrowserRouter>   
+  </BrowserRouter>  
 );
 
 export default App;

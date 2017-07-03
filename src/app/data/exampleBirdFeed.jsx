@@ -1,3 +1,0 @@
-const exampleBirdFeed = [{"bird":"Northern mockingbird","location":"City Park","username":"Ali"},{"bird":"Heron","location":"Louis Armstrong Park","username":"John"},{"bird":"Kingfisher","location":"New Orleans Jazz National Historical Park","username":"Max"},{"bird":"Baltimore oriole","location":"Woldenberg Park","username":"Liv"},{"bird":"Black-billed cuckoo","location":"Audubon Park","username":"Cain"},{"bird":"Duck","location":"Fortier Park","username":"Harvey"},{"bird":"Swallow","location":"Confetti Park","username":"Allison"},{"bird":"American Goldfinch","location":"Op Spark","username":"George"},{"bird":"Eastern bluebird","location":"Magazine","username":"Ray"},{"bird":"Woodpecker","location":"Cresent Park","username":"Rose"}];
-
-export default exampleBirdFeed;  

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
+import logo from '../../assets/images/bwlogo.png';
 
 const style = {
-  margin: 15,
+  margin: 0,
   backgroundColor: '#f7b748',
-  // display: 'block',
-  // position: 'relative',
+  display: 'block',
+  position: 'relative',
 };
 
 class SignUp extends Component {
@@ -22,18 +23,18 @@ class SignUp extends Component {
 
   handleClick() {
     const signupObj = {
-      "username": this.state.username,
-      "password": this.state.password,
+      username: this.state.username,
+      password: this.state.password,
     };
-    axios.post('/signup', signupObj) // does it work if we get rid of apiBaseUrl and only use the endpoint ex: '/signup'
+    axios.post('/signup', signupObj)
     .then((response) => {
-      if (response.status === 200) { 
+      if (response.status === 200) {
         console.log('sign up successful');
         this.props.history.push('/timeline');
       } else if (response.status === 204) {
         this.props.history.push('/signup');
       }
-    })   
+    })
     .catch((error) => {
       console.error(error, 'Error');
     });
@@ -43,22 +44,31 @@ class SignUp extends Component {
       <div>
         <MuiThemeProvider>
           <div>
-          <img src="https://i.imgur.com/y6xZVeF.png" style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
+            <img src={logo} alt="logo" style={{ width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} />
             <br />
-          <div className="signup">
-            <TextField
-              hintText="Enter your Username"
-              floatingLabelText="Username"
-              onChange={(event, newValue) => this.setState({ username: newValue })}/>
-            <br />
-            <TextField
-              type="password"
-              hintText="Enter your Password"
-              floatingLabelText="Password"
-              onChange={(event, newValue) => this.setState({ password: newValue })}/>
-            <br />
-            <RaisedButton label="Sign up" primary={true} style={style} onClick={event => this.handleClick(event)}/>
-          </div>
+            <div className="signup">
+              <TextField
+                hintText="Enter your Username"
+                floatingLabelText="Username"
+                fullWidth
+                onChange={(event, newValue) => this.setState({ username: newValue })}
+              />
+              <br />
+              <TextField
+                type="password"
+                hintText="Enter your Password"
+                floatingLabelText="Password"
+                fullWidth
+                onChange={(event, newValue) => this.setState({ password: newValue })}
+              />
+              <br />
+              <FlatButton
+                label="Sign up"
+                style={style}
+                fullWidth
+                onClick={event => this.handleClick(event)}
+              />
+            </div>
           </div>
         </MuiThemeProvider>
       </div>
