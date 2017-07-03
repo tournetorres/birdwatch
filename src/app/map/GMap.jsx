@@ -15,7 +15,6 @@ class GMap extends Component {
     this.onMarkerClick = this.onMarkerClick.bind(this);
   }
   onMarkerClick(props, marker) {
-    console.log(marker, 'this marker');
     this.setState({
       selectedPlace: props,
       activeMarker: marker,

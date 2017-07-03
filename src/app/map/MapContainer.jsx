@@ -12,18 +12,14 @@ class MapContainer extends Component {
       birdData: exampleBirdData,
       latLng: { lat: 29.95106579999999, lng: -90.0715323 },
     };
-    this.birdCatcher = this.birdCatcher.bind(this);
     this.getLatLng = this.getLatLng.bind(this);
-  }
-  getLatLng(data) {
-    this.setState({ latLng: data }, () => {
-      console.log(this.state.latLng, 'set state');
-    });
+    this.birdCatcher = this.birdCatcher.bind(this);
   }
   birdCatcher(data) {
-    this.setState({ birdData: data.data }, () => {
-      console.log(this.state.birdData, 'new data');
-    });
+    this.setState({ birdData: data.data })
+  }
+  getLatLng(data) {
+    this.setState({ latLng: data })
   }
   render() {
     return (
