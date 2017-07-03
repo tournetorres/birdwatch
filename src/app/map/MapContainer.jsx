@@ -16,7 +16,7 @@ class MapContainer extends Component {
     this.birdCatcher = this.birdCatcher.bind(this);
   }
   birdCatcher(data) {
-    this.setState({ birdData: data.data })
+    this.setState({ birdData: data.data });
   }
   getLatLng(data) {
     this.setState({ latLng: data })

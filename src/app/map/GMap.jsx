@@ -62,3 +62,4 @@ class GMap extends Component {
 }
 
 export default GMap;
+// center={this.props.latLng}
