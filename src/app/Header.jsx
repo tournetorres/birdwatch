@@ -29,6 +29,7 @@ class Header extends Component {
                   iconButtonElement={<IconButton><MoreVertIcon color="white" /></IconButton>} >
                   <MenuItem primaryText="Map" containerElement={<Link to='/map' />} />
                   <MenuItem primaryText="Timeline" containerElement={<Link to='/timeline' />} />
+                  <MenuItem primaryText="My Bird List" containerElement={<Link to='/profile' />} />
                   <MenuItem primaryText="Logout" containerElement={<Link to='/logout' />} onClick={e => this.logsOut(e)} />
                 </IconMenu>
               }

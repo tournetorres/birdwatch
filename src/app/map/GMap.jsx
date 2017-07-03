@@ -38,7 +38,7 @@ class GMap extends Component {
               onClick={this.onMarkerClick}
               name={`${bird.comName}(${bird.howMany})`}
               date={`Last seen ${Moment(bird.obsDt).fromNow()}`}
-              loc={`Sci name: ${bird.sciName}`}
+              sciName={`Sci name: ${bird.sciName}`}
               key={i}
               icon={BirdLogo}
               position={{ lat: ltd, lng: lon }}
@@ -51,7 +51,7 @@ class GMap extends Component {
           >
             <div>
               <center><h2>{this.state.selectedPlace.name}</h2></center>
-              <center><h4>{this.state.selectedPlace.loc}</h4></center>
+              <center><h4>{this.state.selectedPlace.sciName}</h4></center>
               <center><h4>{this.state.selectedPlace.date}</h4></center>
             </div>
           </InfoWindow>

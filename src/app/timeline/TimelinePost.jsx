@@ -6,7 +6,7 @@ import Moment from 'moment-timezone';
 
 const TimelinePost = ({ bird, location, username, created }) => (
   <Card>
-    <CardTitle title={`Bird: ${bird}`} />
+    <CardTitle title={`Birdtype: ${bird}`} />
     <br />
     <CardTitle title={`Location: ${location}`} />
     <br />
