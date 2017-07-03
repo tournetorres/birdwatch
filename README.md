@@ -24,7 +24,7 @@
   > Create a user account in less than 10 seconds and start exploring. The integrated map feature identifies recent bird sightings around you. Use the timeline to helps you log your bird sightings and share with other birders on the app.
 
 ## Customer Quote ##
-  > "We had no idea how many birds rare and exotic birds were in our neightborhood. There is a birding hotspot right around the corner from my house where I spotted my first Roseate Spoonbill! They're everywhere but they pop up unpredictably so you have to stay alert! Birdwatch giving us a head start by mapping out recent sightings. I am also happy to have a chance to contribute. By posting where I saw the Roseate Spoonbill, I can make it that much easier for someone else to spot their first Roseate Spoonbill."
+  > "We had no idea how many rare and exotic birds were in our neightborhood. There is a birding hotspot right around the corner from my house and I spotted my first Roseate Spoonbill! They're everywhere but they pop up unpredictably so you have to stay alert! Birdwatch giving us a head start by mapping out recent sightings. I am also happy that i can contribute to the birding community by logging all of my bird sightings. By posting where I saw the Roseate Spoonbill, I can make it that much easier for someone else to spot their first Roseate Spoonbill."
 
 ## Closing and Call to Action ##
   > Grab your binoculars, open your Birdwatch app, and start birding! 
