@@ -10,13 +10,17 @@ class MapContainer extends Component {
     super(props);
     this.state = {
       birdData: exampleBirdData,
+      latLng: { lat: 29.95106579999999, lng: -90.0715323 },
     };
+    this.getLatLng = this.getLatLng.bind(this);
     this.birdCatcher = this.birdCatcher.bind(this);
   }
   birdCatcher(data) {
-    this.setState({ birdData: data.data }, () => {
-      console.log(this.state.birdData, 'new data')
-    });
+    this.setState({ birdData: data.data })
+  }
+  getLatLng(data) {
+    this.setState({ latLng: data })
+    // console.log(this.state.latLng, 'after');
   }
   render() {
     return (
@@ -24,9 +28,9 @@ class MapContainer extends Component {
         <MuiThemeProvider>
           <div>
             <Header />
-            <SimpleForm birdCatcher={this.birdCatcher} /> 
+            <SimpleForm birdCatcher={this.birdCatcher} getLatLng={this.getLatLng} />
             <br />
-            <GMap google={window.google} birdData={this.state.birdData} />
+            <GMap google={window.google} birdData={this.state.birdData} latLng={this.state.latLng}/>
             <br />
           </div>
         </MuiThemeProvider>

@@ -24,13 +24,8 @@ class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = { scroll: false };
-    // this.topFunction = this.topFunction.bind(this);  
   }
-  // topFunction() {
-  //   // console.log('hi');
-  //   console.log(this, 'in top');
-  //   ReactDOM.findDOMNode(this).scrollTop = 0
-  // }  
+ 
   render() {
     return (
       <div>

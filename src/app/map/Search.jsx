@@ -24,6 +24,7 @@ class SimpleForm extends Component {
           this.props.birdCatcher(response);
         })
         .catch(error => console.error(error));
+        this.props.getLatLng(latLng, 'in search');
         console.log('Success', latLng);
       })
       .catch(error => console.error('Error', error));
