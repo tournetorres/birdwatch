@@ -32,7 +32,7 @@ class Footer extends Component {
               <BottomNavigation style={{ backgroundColor: '#221aba' }}>
                 <BottomNavigationItem
                   icon={fileDownload}
-                  onClick={() => this.props.loadFeed()}
+                  containerElement={<Link to="/timeline" />}
                 />
                 <BottomNavigationItem
                   icon={nearbyIcon}
