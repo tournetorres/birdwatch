@@ -16,12 +16,11 @@ const TimelinePost = ({ bird, location, username, created }) => (
     />
   </Card>
 );
-
 TimelinePost.propTypes = {
   bird: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   created: PropTypes.string,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired, 
 };
 
 export default TimelinePost;
