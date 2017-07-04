@@ -62,6 +62,7 @@ app.post('/login', (req, res) => {
 app.post('/signup', (req, res) => {
   db.getUser(req.body.username)
   .then((data) => {
+    console.log(data);
     if (data.length === 0) {
       const salt = bcrypt.genSaltSync(10);
       const hashedPass = bcrypt.hashSync(req.body.password, salt);
