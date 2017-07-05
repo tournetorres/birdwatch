@@ -36,8 +36,35 @@ class Profile extends Component {
               <Header />
               <h1>My Bird List</h1> <img src={image} alt="logo" />
               <div>
-                <ProfileMap />
+                <ProfileMap google={window.google} />
               </div>
+              {/*<br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />*/}
               <div className="Profile">
                 {this.state.profileData && this.state.profileData.map(post => (
                   <ProfilePost

@@ -7,7 +7,10 @@ class ProfileMap extends Component {
   }
   render() {
     return (
-      <div>Honey Im Comb</div>
+      <Map
+      google={this.props.google}
+      style={{width: '90%', height: '50%', position: 'relative', margin: 'auto'}}
+      />
     );
   }
 }
