@@ -6,6 +6,7 @@ import Header from '../Header.jsx';
 import Footer from '../timeline/Footer.jsx';
 import ProfilePost from './ProfilePost.jsx';
 import image from '../../assets/images/cursorBW.png';
+import ProfileMap from './ProfileMap.jsx';
 
 class Profile extends Component {
   constructor(props) {
@@ -29,23 +30,28 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <MuiThemeProvider>
-          <div>
-            <Header />
-            <h1>My Bird List</h1> <img src={image} alt="logo"/>
-            <div className="Profile">
-              {this.state.profileData && this.state.profileData.map(post => (
-                <ProfilePost
-                  bird={post.bird}
-                  location={post.location}
-                  created={post.created}
-                  key={post.id}
-                />
-              ))}
+        <div>
+          <MuiThemeProvider>
+            <div>
+              <Header />
+              <h1>My Bird List</h1> <img src={image} alt="logo" />
+              <div>
+                <ProfileMap />
+              </div>
+              <div className="Profile">
+                {this.state.profileData && this.state.profileData.map(post => (
+                  <ProfilePost
+                    bird={post.bird}
+                    location={post.location}
+                    created={post.created}
+                    key={post.id}
+                  />
+                ))}
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
-        </MuiThemeProvider>
+          </MuiThemeProvider>
+        </div>
       </div>
     );
   }
