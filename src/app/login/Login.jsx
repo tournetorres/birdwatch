@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import logo from '../../assets/images/bwlogo.png';
@@ -27,7 +28,7 @@ class Login extends Component {
     axios.post('/login', loginObj)
     .then((response) => {
       if (response.status === 200) {
-        console.log('sign up successful');
+        console.log('login successful');
         this.props.history.push('/timeline');
       } else if (response.status === 204) {
         this.props.history.push('/login');
@@ -60,7 +61,19 @@ class Login extends Component {
                 onChange={(event, newValue) => this.setState({ password: newValue })}
               />
               <br />
-              <FlatButton label="Login" style={style} fullWidth onClick={event => this.handleClick(event)} />
+              <FlatButton
+                label="Login"
+                style={style}
+                fullWidth
+                onClick={event => this.handleClick(event)}
+              />
+              <br />
+              <FlatButton
+                label="SignUp"
+                containerElement={<Link to="/signup" />}
+                style={style}
+                fullWidth
+              />
             </div>
           </div>
         </MuiThemeProvider>

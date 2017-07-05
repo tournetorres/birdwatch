@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../../assets/images/bwlogo.png';
 
@@ -67,6 +68,13 @@ class SignUp extends Component {
                 style={style}
                 fullWidth
                 onClick={event => this.handleClick(event)}
+              />
+              <br />
+              <FlatButton
+                label="Login"
+                containerElement={<Link to="/login" />}
+                style={style}
+                fullWidth
               />
             </div>
           </div>
