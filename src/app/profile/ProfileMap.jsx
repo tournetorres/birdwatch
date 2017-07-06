@@ -7,10 +7,11 @@ class ProfileMap extends Component {
   }
   render() {
     return (
+      <div className="profileMap">
       <Map
       google={this.props.google}
-      style={{width: '90%', height: '50%', position: 'relative', margin: 'auto'}}
       />
+      </div>
     );
   }
 }

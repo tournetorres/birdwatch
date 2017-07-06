@@ -35,9 +35,7 @@ class Profile extends Component {
             <div>
               <Header />
               <h1>My Bird List</h1> <img src={image} alt="logo" />
-              <div>
                 <ProfileMap google={window.google} />
-              </div>
               {/*<br />
               <br />
               <br />
