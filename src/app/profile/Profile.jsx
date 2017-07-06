@@ -7,7 +7,7 @@ import Footer from '../timeline/Footer.jsx';
 import ProfilePost from './ProfilePost.jsx';
 import image from '../../assets/images/cursorBW.png';
 import ProfileMap from './ProfileMap.jsx';
-
+//TODO: import google places geocodebyadress
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +23,7 @@ class Profile extends Component {
     axios.get('/profile').then((data) => {
       this.setState({ profileData: data.data });
       console.log(this.state.profileData, 'after');
+      //TODO: create a variable to contsain this.state.profileData;
     }).catch((error) => {
       console.error(error);
     });
@@ -35,34 +36,11 @@ class Profile extends Component {
             <div>
               <Header />
               <h1>My Bird List</h1> <img src={image} alt="logo" />
-                <ProfileMap google={window.google} />
-              {/*<br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />*/}
+                <ProfileMap
+                google={window.google}
+                latLng={{ lat: 29.95106579999999, lng: -90.0715323 }}
+                //TODO: pass location variable down to profile map;
+                />
               <div className="Profile">
                 {this.state.profileData && this.state.profileData.map(post => (
                   <ProfilePost

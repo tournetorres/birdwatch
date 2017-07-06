@@ -10,6 +10,9 @@ class ProfileMap extends Component {
       <div className="profileMap">
       <Map
       google={this.props.google}
+      initialCenter={this.props.latLng}
+      //TODO: iterate over data;
+      //TODO: create a marker for each item in the data;
       />
       </div>
     );
