@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import Snackbar from 'material-ui/Snackbar';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import cryptiles from 'cryptiles';
 import logo from '../../assets/images/bwlogo.png';
 
 const style = {
@@ -18,6 +20,9 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
+      open: false,
+      vertical: null,
+      horizontal: null,
     };
   }
   handleClick() {
@@ -29,6 +34,7 @@ class Login extends Component {
     .then((response) => {
       if (response.status === 200) {
         console.log('login successful');
+        localStorage.setItem('watcherToken', cryptiles.randomString(100));
         this.props.history.push('/timeline');
       } else if (response.status === 204) {
         this.props.history.push('/login');
@@ -37,6 +43,12 @@ class Login extends Component {
     .catch((error) => {
       console.log(error, 'Error');
     });
+  }
+  snackClick() {
+    this.setState({ open: true });
+  }
+  snackRequestClose() {
+    this.setState({ open: false });
   }
   render() {
     return (
@@ -67,6 +79,7 @@ class Login extends Component {
                 fullWidth
                 onClick={event => this.handleClick(event)}
               />
+              <br />
               <br />
               <FlatButton
                 label="SignUp"
