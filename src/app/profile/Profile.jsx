@@ -23,7 +23,6 @@ class Profile extends Component {
     axios.get('/profile').then((data) => {
       this.setState({ profileData: data.data });
       console.log(this.state.profileData, 'after');
-      //TODO: create a variable to contsain this.state.profileData;
     }).catch((error) => {
       console.error(error);
     });
@@ -36,11 +35,15 @@ class Profile extends Component {
             <div>
               <Header />
               <h1>My Bird List</h1> <img src={image} alt="logo" />
-                <ProfileMap
+              <div>
+                {this.state.profileData && this.state.profileData.map(profile => console.log(this.state.profileData))}
+                {this.state.profileData && <ProfileMap
                 google={window.google}
                 latLng={{ lat: 29.95106579999999, lng: -90.0715323 }}
+                location={this.state.profileData}
                 //TODO: pass location variable down to profile map;
-                />
+                />}
+              </div>
               <div className="Profile">
                 {this.state.profileData && this.state.profileData.map(post => (
                   <ProfilePost
