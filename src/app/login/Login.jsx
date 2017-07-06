@@ -20,9 +20,6 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      open: false,
-      vertical: null,
-      horizontal: null,
     };
   }
   handleClick() {
