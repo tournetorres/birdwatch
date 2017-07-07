@@ -71,7 +71,7 @@ const App = () => (
         path="/comment"
         render={() => (
         localStorage.getItem('watcherToken') === null ? (
-          <Redirect to="/timeline" />
+          <Redirect to="/login" />
         ) : (
           <CommentPage />
         )
