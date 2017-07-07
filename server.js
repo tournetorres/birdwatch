@@ -42,9 +42,9 @@ app.post('/login', (req, res) => {
   db.getUser(req.body.username)
   .then((data) => {
     if (data.length) {
-      const salt = data[0].salt;
-      const servPassHash = data[0].password;
-      const sentPassHash = bcrypt.hashSync(req.body.password, salt);
+      let salt = data[0].salt;
+      let servPassHash = data[0].password;
+      let sentPassHash = bcrypt.hashSync(req.body.password, salt);
       if (sentPassHash === servPassHash) {
         req.session.regenerate(() => {
           req.session.user = req.body.username;

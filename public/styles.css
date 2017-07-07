@@ -30,3 +30,10 @@
 
 .geosuggest__input {
   width: 220px; }
+.profileMap {
+  margin: auto;
+  margin-bottom: 10px;
+  position: relative;
+  width: 1000px;
+  height: 500px;
+  overflow: hidden; }

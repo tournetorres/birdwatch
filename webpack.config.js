@@ -66,7 +66,9 @@ const config = {
   ],
   devServer: {
     contentBase: path.resolve(__dirname, './public'), // url to serve HTML contents from
-    historyApiFallback: true, // fallback to index.html for Single Page applications
+    historyApiFallback: {
+      index: '/',
+    }, // fallback to index.html for Single Page applications
     inline: true,
     open: true, //open default browser when launching
   },
