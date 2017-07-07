@@ -7,7 +7,7 @@ import Footer from '../timeline/Footer.jsx';
 import ProfilePost from './ProfilePost.jsx';
 import image from '../../assets/images/cursorBW.png';
 import ProfileMap from './ProfileMap.jsx';
-//TODO: import google places geocodebyadress
+
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -39,8 +39,7 @@ class Profile extends Component {
                 {this.state.profileData && <ProfileMap
                 google={window.google}
                 latLng={{ lat: 29.95106579999999, lng: -90.0715323 }}
-                location={this.state.profileData}
-                //TODO: pass location variable down to profile map;
+                profileData={this.state.profileData}
                 />}
               </div>
               <div className="Profile">
