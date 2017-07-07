@@ -24,7 +24,7 @@ const App = () => (
       <Route path="/profile" component={Profile} />
       <Route path="*" component={NotFound} />
     </Switch>
-  </BrowserRouter>  
+  </BrowserRouter>
 );
 
 export default App;

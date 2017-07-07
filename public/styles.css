@@ -13,3 +13,20 @@
   bottom: 0;
   left: 0;
   padding: 1rem; }
+
+.birdLogImage {
+  max-height: 100px; }
+
+.parentBounding {
+  max-height: 100px; }
+
+.bounding {
+  max-height: 100px; }
+
+.imageText {
+  font-size: 12px;
+  color: #221aaf;
+  word-wrap: break-word; }
+
+.geosuggest__input {
+  width: 220px; }
