@@ -20,7 +20,6 @@ const TimelinePost = ({ bird, location, username, created, image }) => (
     </CardMedia>
 
   </Card>
-
 );
 
 TimelinePost.propTypes = {
