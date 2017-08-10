@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server -d --hot --config webpack.config.js --watch",
-    "build": "webpack --watch",
-    "production": "NODE_ENV=production webpack"
+    "start": "node public/bundle.js && node server.js"
   },
   "repository": {
     "type": "git",

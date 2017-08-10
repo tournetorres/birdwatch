@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Avatar from 'material-ui/Avatar';
+// import Avatar from 'material-ui/Avatar';
 import axios from 'axios';
-import Header from '../Header.jsx';
-import Footer from '../timeline/Footer.jsx';
-import ProfilePost from './ProfilePost.jsx';
+import Header from '../Header';
+import Footer from '../timeline/Footer';
+import ProfilePost from './ProfilePost';
 import image from '../../assets/images/cursorBW.png';
-import ProfileMap from './ProfileMap.jsx';
+import ProfileMap from './ProfileMap';
 
 class Profile extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Profile extends Component {
     this.loadProfile();
   }
   loadProfile() {
-    axios.get('/profile').then((data) => {
+    axios.get('/getProfile').then((data) => {
       this.setState({ profileData: data.data });
       console.log(this.state.profileData, 'after');
     }).catch((error) => {

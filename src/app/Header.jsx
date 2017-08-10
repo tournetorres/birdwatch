@@ -11,7 +11,6 @@ import axios from 'axios';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.logsOut = this.logsOut.bind(this);
   }
   logsOut() {
     axios.post('/logout', { logmeout: true })
@@ -33,12 +32,11 @@ class Header extends Component {
               style={{ backgroundColor: '#221aba' }}
               title="Bird Watch"
               iconElementLeft={
-                <IconMenu
-                  iconButtonElement={<IconButton><MoreVertIcon color="white" /></IconButton>} >
-                  <MenuItem primaryText="Map" containerElement={<Link to='/map' />} />
-                  <MenuItem primaryText="Timeline" containerElement={<Link to='/timeline' />} />
-                  <MenuItem primaryText="My Bird List" containerElement={<Link to='/profile' />} />
-                  <MenuItem primaryText="Logout" containerElement={<Link to='/logout' />} onClick={e => this.logsOut(e)} />
+                <IconMenu iconButtonElement={<IconButton><MoreVertIcon color="white" /></IconButton>}>
+                  <MenuItem primaryText="Map" containerElement={<Link to="/map" />} />
+                  <MenuItem primaryText="Timeline" containerElement={<Link to="/timeline" />} />
+                  <MenuItem primaryText="My Bird List" containerElement={<Link to="/profile" />} />
+                  <MenuItem primaryText="Logout" containerElement={<Link to="/logout" />} onClick={e => this.logsOut(e)} />
                 </IconMenu>
               }
             />

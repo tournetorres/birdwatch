@@ -136,15 +136,16 @@ app.get('/birds', (req, res) => {
   });
 });
 
-
-app.get('/profile', (req, res) => {
+app.get('/getProfile', (req, res) => {
   db.getUser(req.session.user)
   .then((data) => {
+    console.log(data);
     const id = data[0].id;
     db.getBirdsByUser(id)
     .then((data) => {
       res.writeHead(200);
       res.write(JSON.stringify(data));
+      console.log('ending');
       res.end();
     });
   });
